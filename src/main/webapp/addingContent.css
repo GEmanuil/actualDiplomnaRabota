@@ -1,15 +1,23 @@
 body {
-    background-color: rgb(40, 43, 44);
+    background-color: rgb(251, 252, 216);
 }
 #mainTxt{
     width: 150px;
     margin-left: 20px;
     font-family:cursive;
     font-size: 35px;
+    color: white;
+    text-align: center;
+    background-color: rgb(0, 0, 0);
+    border-radius: 5px;
+}
+.MT{
     color: rgb(0, 0, 0);
     text-align: center;
-    background-color: rgb(251, 252, 216);
-    border-radius: 5px;
+}
+#RegBorder{
+    color: rgb(251, 252, 216);
+    text-align: center;
 }
 .textB{
     height:300px;

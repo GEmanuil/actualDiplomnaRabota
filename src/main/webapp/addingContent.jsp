@@ -33,9 +33,9 @@
     <p class="MT">Add your information here</p>
     <form  action="/regServ" method="get">
         <label class="title" for="title">Title</label><br>
-        <input class="tTitle" type="text" id="title" name="title" required><br><br>
+        <input class="tTitle" type="text" id="title" name="title" required><br>
         <label class="text" for="text">Text</label><br>
-        <textarea class="textB" id="text" name="MainText" placeholder="Text" required></textarea>
+        <textarea class="textB" id="text" name="MainText" placeholder="Text" required></textarea><br><br>
 
         <input class="add" type="submit" value="ADD CONTENT"><br>
     </form>
