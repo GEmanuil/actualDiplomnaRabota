@@ -7,18 +7,21 @@ public class regInfoClass implements Serializable {
     private String lastname;
     private String email;
     private String password;
+    private String teachStud;
 
     public regInfoClass() {
         this.firstname = "Eman";
         this.lastname = "Geor";
         this.email = "em@abv.bg";
         this.password = "1234";
+        this.teachStud = "student";
     }
-    public regInfoClass(String firstname, String lastname, String email, String password) {
+    public regInfoClass(String firstname, String lastname, String email, String password, String teachStud) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
         this.password = password;
+        this.teachStud = teachStud;
     }
 
     public String getFirstname() {
@@ -51,5 +54,11 @@ public class regInfoClass implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+    public String getTeachStud(){
+        return teachStud;
+    }
+    public void setTeachStud(String teachStud){
+        this.teachStud = teachStud;
     }
 }

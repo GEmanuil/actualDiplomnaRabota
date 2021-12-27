@@ -1,6 +1,5 @@
 package johnatanasov.diplomawork;
 import com.mysql.jdbc.Driver;
-
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -41,11 +40,10 @@ public class SQLJavaClass {
         return con;
     }
 
-
     public void insert(regInfoClass member) {
         loadDriver(dbDriver);
         Connection con = getConnection();
-        String sql = "insert into RegTB(Firstname, Lastname, email, password) values (?, ?, ?, ?);";
+        String sql = "insert into RegTB(Firstname, Lastname, email, password, sOrT) values (?, ?, ?, ?, ?);";
 
         PreparedStatement ps;
         try {
@@ -55,13 +53,33 @@ public class SQLJavaClass {
             ps.setString(2, member.getLastname());
             ps.setString(3, member.getEmail());
             ps.setString(4, member.getPassword());
+            ps.setString(5, member.getTeachStud());
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
     }
+    public boolean check(regInfoClass member) {
+        loadDriver(dbDriver);
+        Connection con = getConnection();
+        String sql = "SELECT * FROM regtb  WHERE email = ? and password = ?;";
 
+        PreparedStatement ps;
+        boolean cheki;
+
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setString(1, member.getEmail());
+            ps.setString(2, member.getPassword());
+            System.out.println(ps.executeQuery().next() + " ");
+            cheki = ps.executeQuery().next();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            cheki = false;
+        }
+        return cheki;
+    }
 
 }
 

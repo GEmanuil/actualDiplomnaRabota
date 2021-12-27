@@ -20,9 +20,9 @@
     Relook
 </h1>
 <ul id="lr" class="RL">
-    <li class="RL M H"><a href="relookMain.html">Home</a></li>
-    <li class="RL M L"><a href="login.html">Log In</a></li>
-    <li class="RL M R"><a href="register.html">Register</a></li>
+    <li class="RL M H"><a href="relookMain.jsp">Home</a></li>
+    <li class="RL M L"><a href="login.jsp">Log In</a></li>
+    <li class="RL M R"><a href="rEpTest.jsp">Register</a></li>
     <div style="padding-bottom:2000px"></div>
 </ul>
 <h1 id="RegBorder">
@@ -40,6 +40,13 @@
         <label class="Register RP" for="repeatPassword">Repeat Password:</label><br>
         <input class="Register RP B" type="password" id="repeatPassword" name="repeatPassword" required><br><br>
 
+        <input checked class="CheckBox" type="radio" id="checkbox" name="checkbox" value="student">
+        <label for="checkbox">You are a student</label> <br>
+
+        <input class="CheckBox2" type="radio" id="checkbox2" name="checkbox" value="teacher">
+        <label for="checkbox2">You are a teacher</label> <br>
+
         <input class="Register S" type="submit" value="Register"><br>
    </form>
+</h1>
 </html>

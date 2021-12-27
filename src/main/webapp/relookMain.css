@@ -1,0 +1,85 @@
+body {
+    background-color: rgb(40, 43, 44);
+}
+#mainTxt{
+    width: 150px;
+    margin-left: 20px;
+    font-family:cursive;
+    font-size: 35px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    background-color: rgb(251, 252, 216);
+    border-radius: 5px;
+}
+
+.RL{
+    /*To finish after*/
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    float: left;
+}
+.RL a{
+    display: block;
+    color: white;
+    /* text-align: center; */
+    padding: 10px 10px;
+    text-decoration: none;
+}
+.RL .M:hover:not(.RL .H){
+    background-color: rgb(253, 208, 7);
+}
+.RL .H{
+    background-color: rgb(253, 208, 7);
+}
+#lr{
+    float:right;
+    margin-top: -75px;
+    max-height: 38px;
+}
+#addButton{
+    margin-left: auto;
+    position: relative;
+    background-color: #333333;
+    border: none;
+    font-size: 28px;
+    color: #FFFFFF;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+}
+#addButton:after {
+    content: "";
+    background: #f1f1f1;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px !important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+
+#addButton:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+}
+.MT{
+    text-align: center;
+    font-family:'Courier New', Courier, monospace;
+    font-size: 35px;
+    margin-top: 40px;
+    /* text-shadow: 1px 1px red; */
+}
+
+
+/* This is a comment! */

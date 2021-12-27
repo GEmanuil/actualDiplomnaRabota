@@ -23,16 +23,19 @@ public class register extends HttpServlet {
     String email = request.getParameter("email");
     String password = request.getParameter("password");
     String repeatedPass = request.getParameter("repeatPassword");
+    String teachStudy = request.getParameter("checkbox");
     String message2 = "The passwords do not match!!";
     String message1 = "You registered successfully";
-        regInfoClass person = new regInfoClass();
+    //    regInfoClass person = new regInfoClass();
         person.setFirstname(firstName);
         person.setLastname(lastName);
         person.setEmail(email);
         person.setPassword(password);
+        person.setTeachStud(teachStudy);
         if(password.equals(repeatedPass)){
             getServletContext().getRequestDispatcher("/successfulRegJ.jsp").forward(request, response);
             persons.insert(person);
+            System.out.println(teachStudy);
 //            response.setContentType("text/html");
 //            PrintWriter out = response.getWriter();
 //            out.println("<html><body>");
