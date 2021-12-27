@@ -21,7 +21,7 @@
 </h1>
 <ul id="lr" class="RL">
     <li class="RL M H"><a href="relookMain.html">Home</a></li>
-    <li class="RL M L"><a href="login.html">Log In</a></li>
+    <li class="RL M L"><a href="login.jsp">Log In</a></li>
     <li class="RL M R"><a href="register.html">Register</a></li>
     <div style="padding-bottom:2000px"></div>
 </ul>
