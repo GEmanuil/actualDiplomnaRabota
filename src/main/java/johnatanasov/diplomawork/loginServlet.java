@@ -8,6 +8,7 @@ import javax.servlet.annotation.*;
 public class loginServlet extends HttpServlet{
     private final regInfoClass person = new regInfoClass();
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
         String message = "Email or password are not correct!!!";
         String message2 = ":) Good job :)";
         String email = request.getParameter("email");
@@ -21,12 +22,9 @@ public class loginServlet extends HttpServlet{
             //TODO seesion
             //getServletContext().getRequestDispatcher("/test.jsp").forward(request, response);
             HttpSession session = request.getSession();
+            session.setAttribute("email", email);
+            response.sendRedirect("relookMain.jsp");
 
-
-            PrintWriter out = response.getWriter();
-            out.println("<html><body>");
-            out.println("<h1>" + message2 + "</h1>");
-            out.println("</body></html>");
         }
         else{
             PrintWriter out = response.getWriter();
