@@ -8,7 +8,7 @@ import java.io.IOException;
 @WebServlet(name = "addContentServlet", urlPatterns = "/addContentServlet")
 public class addContentServlet extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
 //        System.out.println(request.getParameter("MainText"));
 //        System.out.println(session.getAttribute("email"));
