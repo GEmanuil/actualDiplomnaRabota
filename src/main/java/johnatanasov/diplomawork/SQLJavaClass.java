@@ -81,6 +81,44 @@ public class SQLJavaClass {
         return cheki;
     }
 
+    public void insertContent(String title, String text, HttpSession session){
+        String email = session.getAttribute("email").toString();
+        String password = session.getAttribute("password").toString();
+//        System.out.println("In insertContent fun: " +  session.getAttribute("email"));
+        ResultSet resulset;
+        String result = null;
+        loadDriver(dbDriver);
+        Connection con = getConnection();
+        String sql = "SELECT ID FROM regtb WHERE email = ? and password = ?;";
+        PreparedStatement ps;
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setString(1, email);
+            ps.setString(2, password);
+            resulset = ps.executeQuery();
+            if(resulset.next()){
+//                System.out.println(resulset.getString("ID"));
+                result = resulset.getString("ID");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        String sql1 = "insert into content(title, text, fid) values(?, ?, ?);";
+        PreparedStatement ps1;
+
+        try {
+            ps1 = con.prepareStatement(sql1);
+            ps1.setString(1, title);
+            ps1.setString(2, text);
+            ps1.setString(3, result);
+            ps1.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
 
 

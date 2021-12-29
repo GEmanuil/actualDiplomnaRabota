@@ -31,7 +31,7 @@
 </ul>
 <h1 id="RegBorder">
     <p class="MT">Add your information here</p>
-    <form  action="/regServ" method="get">
+    <form  action="/addContentServlet" method="get">
         <label class="title" for="title">Title</label><br>
         <input class="tTitle" type="text" id="title" name="title" required><br>
         <label class="text" for="text">Text</label><br>

@@ -19,10 +19,9 @@ public class loginServlet extends HttpServlet{
         person.setPassword(password);
 
         if(chek.check(person)){
-            //TODO seesion
-            //getServletContext().getRequestDispatcher("/test.jsp").forward(request, response);
             HttpSession session = request.getSession();
             session.setAttribute("email", email);
+            session.setAttribute("password", password);
             response.sendRedirect("relookMain.jsp");
 
         }
