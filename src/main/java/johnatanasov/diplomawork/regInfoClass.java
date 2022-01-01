@@ -1,5 +1,4 @@
 package johnatanasov.diplomawork;
-
 import java.io.Serializable;
 
 public class regInfoClass implements Serializable {

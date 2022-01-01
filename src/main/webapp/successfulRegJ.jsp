@@ -24,8 +24,9 @@
     <li class="RL M R"><a href="register.html">Register</a></li>
     <div style="padding-bottom:2000px"></div>
 </ul>
-<h1 id="RegBorder"> You registered successfully. Now feel free to login and use Relook:)</h1>
-    <form  action="/successfulRegistration" method="post">
+<h1 id="RegBorder"> One more step. Please enter the verification code which was sent to you </h1>
 
+    <form   action="/regForCodeServlet" method="post">
+        <label><input id="tb1" type="text" name="code"><input type="submit"></label>
     </form>
 </html>

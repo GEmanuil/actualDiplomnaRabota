@@ -1,16 +1,12 @@
 package johnatanasov.diplomawork;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.io.OutputStream;
+import mail.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Random;
 
 @WebServlet(name = "register", urlPatterns = "/regServ")
 public class register extends HttpServlet {
@@ -26,21 +22,26 @@ public class register extends HttpServlet {
     String teachStudy = request.getParameter("checkbox");
     String message2 = "The passwords do not match!!";
     String message1 = "You registered successfully";
+    forMail mail = new forMail();
+    randomGenerator randomGenerator = new randomGenerator();
+
     //    regInfoClass person = new regInfoClass();
         person.setFirstname(firstName);
         person.setLastname(lastName);
         person.setEmail(email);
         person.setPassword(password);
         person.setTeachStud(teachStudy);
+
+
         if(password.equals(repeatedPass)){
+            String code = randomGenerator.generateString();
+            HttpSession session = request.getSession();
+            session.setAttribute("email", email);
+            session.setAttribute("code", code);
+            session.setAttribute("personOb", person);
+            mail.mailSend(email, code);
+            System.out.println("In reg: " + email + ", " + code);
             getServletContext().getRequestDispatcher("/successfulRegJ.jsp").forward(request, response);
-            persons.insert(person);
-            System.out.println(teachStudy);
-//            response.setContentType("text/html");
-//            PrintWriter out = response.getWriter();
-//            out.println("<html><body>");
-//            out.println("<h1>" + message1 + "</h1>");
-//            out.println("</body></html>");
         }
         else{
             // response.setContentType("text/html");
