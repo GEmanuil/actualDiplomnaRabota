@@ -18,8 +18,6 @@ public class regForCodeServlet extends HttpServlet {
         String code = session.getAttribute("code").toString();
         String codeFromJSP = request.getParameter("code");
         String email = session.getAttribute("email").toString();
-        String t;
-        String f;
         System.out.println("In regFOrServ: " + email + ", " + code);
         if(code.equals(codeFromJSP)){
             regInfoClass per = (regInfoClass) session.getAttribute("personOb");
