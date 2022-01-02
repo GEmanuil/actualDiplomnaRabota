@@ -15,6 +15,7 @@ public class regForCodeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         SQLJavaClass persons = new SQLJavaClass();
+        String message = "You registered successfully.";
         String code = session.getAttribute("code").toString();
         String codeFromJSP = request.getParameter("code");
         String email = session.getAttribute("email").toString();
@@ -22,6 +23,10 @@ public class regForCodeServlet extends HttpServlet {
         if(code.equals(codeFromJSP)){
             regInfoClass per = (regInfoClass) session.getAttribute("personOb");
             persons.insert(per);
+            PrintWriter out = response.getWriter();
+            out.println("<html><body>");
+            out.println("<h1>" + message + "</h1>");
+            out.println("</body></html>");
         }
         else {
             System.out.println(":(");

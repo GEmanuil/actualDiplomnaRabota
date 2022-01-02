@@ -21,7 +21,6 @@ public class register extends HttpServlet {
     String repeatedPass = request.getParameter("repeatPassword");
     String teachStudy = request.getParameter("checkbox");
     String message2 = "The passwords do not match!!";
-    String message1 = "You registered successfully";
     forMail mail = new forMail();
     randomGenerator randomGenerator = new randomGenerator();
 
@@ -31,7 +30,6 @@ public class register extends HttpServlet {
         person.setEmail(email);
         person.setPassword(password);
         person.setTeachStud(teachStudy);
-
 
         if(password.equals(repeatedPass)){
             String code = randomGenerator.generateString();
