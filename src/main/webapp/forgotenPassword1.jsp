@@ -7,15 +7,15 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <head>
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="forgotenPassword1.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
     <title>My Relook</title>
 
 </head>
 <body>
-    <%
-        response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-        %>
+<%
+    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+%>
 </body>
 <html>
 <h1 id="mainTxt">
@@ -27,14 +27,11 @@
     <div style="padding-bottom:2000px"></div>
 </ul>
 <h1 id="RegBorder">
-    <p class="MT">Login to Relook</p>
-    <form  action="/logServe" method="post">
+    <p class="MT">Forgot your password? Enter your email.</p>
+    <form  action="/forgottenPassServlet1" method="post">
         <label class="Register E" for="email">Email address:</label><br>
         <input class="Register E B" type="email" id="email" name="email" required><br><br>
-        <label class="Register P" for="password">Password:</label><br>
-        <input class="Register P B" type="password" id="password" name="password" required><br><br>
 
-        <input class="Register S" type="submit" value="Login"><br>
+        <input class="Register S" type="submit" value="Submit"><br>
     </form>
-    <p><a href="forgotenPassword1.jsp">Click here, if you forgot your password!!!</a></p>
 </html>

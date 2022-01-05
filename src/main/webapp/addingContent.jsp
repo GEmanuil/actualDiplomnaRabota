@@ -6,14 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: em4o_
-  Date: 14.12.2021 г.
-  Time: 18:38
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="johnatanasov.diplomawork.*"  %>
+<%@ page import="mail.*"  %>
 <head>
     <link rel="stylesheet" href="/addingContent.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
@@ -30,7 +24,7 @@
 <ul id="lr" class="RL">
 </ul>
 <h1 id="RegBorder">
-    <p class="MT">Add your information here</p>
+    <p class="MT">Add your information here </p>
     <form  action="/addContentServlet" method="post">
         <label class="title" for="title">Title</label><br>
         <input class="tTitle" type="text" id="title" name="title" required><br>

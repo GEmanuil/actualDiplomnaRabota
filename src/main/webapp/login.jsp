@@ -36,4 +36,5 @@
 
         <input class="Register S" type="submit" value="Login"><br>
     </form>
+    <p><a href="forgotenPassword1.jsp">Click here, if you forgot your password!!!</a></p>
 </html>

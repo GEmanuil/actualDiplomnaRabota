@@ -23,6 +23,9 @@ body {
     height:300px;
     width:700px;
 }
+#mainTxext{
+    text-align: center;
+}
 
 /* This is a comment! */
 

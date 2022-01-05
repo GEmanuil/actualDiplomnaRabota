@@ -59,7 +59,7 @@ public class forMail {
                 message.setSubject("Relook verification!!!");
 
                 // Now set the actual message
-                message.setText("This is your verification code: " + code);
+                message.setText("This is your code: " + code);
 
                 System.out.println("sending...");
                 // Send message
