@@ -22,19 +22,23 @@
 <h1 id="mainTxt" draggable="true">
     Relook
 </h1>
+<form draggable="true" action="editContent.jsp">
+    <input type="submit" id="editButton" name="editButton" value="EDIT">
+
+</form>
 <ul id="lr" class="RL">
 </ul>
 <h1 id="RegBorder">
     <p class="MT"></p>
     <p class="MT"> <%
         SQLJavaClass sqlJavaClass = new SQLJavaClass();
-        String title = sqlJavaClass.giveLastContentTitle(session);
+        String title = session.getAttribute("title").toString();
     %>  <%= title %> </p>
 
 </h1>
 <h2 id="mainTxext">
     <%
-        String text = sqlJavaClass.giveLastContentText(session);
+        String text = session.getAttribute("text").toString();
     %>
     <%= text %>
 </h2>

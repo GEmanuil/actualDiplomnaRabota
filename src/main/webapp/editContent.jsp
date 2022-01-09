@@ -23,16 +23,19 @@
 </h1>
 <ul id="lr" class="RL">
 </ul>
-
+<%
+    String title = session.getAttribute("title").toString();
+    String text = session.getAttribute("text").toString();
+%>
 <h1 id="RegBorder">
     <p class="MT">Add your information here </p>
-    <form  action="/addContentServlet" method="post">
+    <form  action="/editContentServlet" method="post">
         <label class="title" for="title">Title</label><br>
-        <textarea class="tTitle" id="title" name="title" placeholder="Title" draggable="true"  required></textarea><br><br>
+        <textarea class="tTitle" id="title" name="title" placeholder="Title"  required><%=title%></textarea><br><br>
         <label class="text" for="text">Text</label><br>
-        <textarea class="textB" id="text" name="MainText" placeholder="Text" draggable="false"  required></textarea><br><br>
+        <textarea class="textB" id="text" name="MainText" placeholder="Text" draggable="false"  required><%=text%></textarea><br><br>
 
-        <input class="add" type="submit" value="ADD CONTENT"><br>
+        <input class="add" type="submit" value="Update"><br>
     </form>
 </h1>
 </html>

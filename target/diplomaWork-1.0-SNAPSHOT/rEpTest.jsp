@@ -16,7 +16,7 @@
 
 </body>
 <html>
-<h1 id="mainTxt">
+<h1 id="mainTxt" draggable="true">
     Relook
 </h1>
 <ul id="lr" class="RL">

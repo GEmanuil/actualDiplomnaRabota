@@ -18,18 +18,19 @@
 
 </body>
 <html>
-<h1 id="mainTxt">
+<h1 id="mainTxt" draggable="true">
     Relook
 </h1>
 <ul id="lr" class="RL">
 </ul>
+
 <h1 id="RegBorder">
     <p class="MT">Add your information here </p>
     <form  action="/addContentServlet" method="post">
         <label class="title" for="title">Title</label><br>
-        <input class="tTitle" type="text" id="title" name="title" required><br>
+        <textarea class="tTitle" id="title" name="title" placeholder="Title" draggable="true"  required></textarea><br><br>
         <label class="text" for="text">Text</label><br>
-        <textarea class="textB" id="text" name="MainText" placeholder="Text" required></textarea><br><br>
+        <textarea class="textB" id="text" name="MainText" placeholder="Text" draggable="false"  required></textarea><br><br>
 
         <input class="add" type="submit" value="ADD CONTENT"><br>
     </form>

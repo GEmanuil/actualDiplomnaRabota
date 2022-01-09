@@ -10,7 +10,7 @@
 <br/>
 <a href="/hello">Hello Servlet</a>
 <p></p>
-<a href="/testi">testing</a>
+<a href="/test.jsp">testing</a>
 <p></p>
 <a href="rEpTest.jsp">Reelook register page</a>
 </body>

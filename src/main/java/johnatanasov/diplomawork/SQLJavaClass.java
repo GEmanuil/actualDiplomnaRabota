@@ -12,6 +12,9 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.HashMap;
+import java.util.Map;
+
 public class SQLJavaClass {
 
     private final String dbUrl = "jdbc:mysql://localhost:3306/demo";
@@ -64,15 +67,12 @@ public class SQLJavaClass {
         loadDriver(dbDriver);
         Connection con = getConnection();
         String sql = "SELECT * FROM regtb  WHERE email = ? and password = ?;";
-
         PreparedStatement ps;
         boolean cheki;
-
         try {
             ps = con.prepareStatement(sql);
             ps.setString(1, member.getEmail());
             ps.setString(2, member.getPassword());
-            System.out.println(ps.executeQuery().next() + " ");
             cheki = ps.executeQuery().next();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -177,7 +177,7 @@ public class SQLJavaClass {
 //            System.out.println(findID);
         }
 
-        public String giveContentTitle(HttpSession session){
+        public String giveLastContentTitle(HttpSession session){
             String email = session.getAttribute("email").toString();
             String result = "null";
             loadDriver(dbDriver);
@@ -243,7 +243,7 @@ public class SQLJavaClass {
             }
             return  result;
     }
-    public String giveContentText(HttpSession session){
+    public String giveLastContentText(HttpSession session){
         String email = session.getAttribute("email").toString();
         String result = "null";
         loadDriver(dbDriver);
@@ -308,6 +308,158 @@ public class SQLJavaClass {
             e.printStackTrace();
         }
         return  result;
+    }
+
+    public HashMap<Integer, String> giveContentTitle(HttpSession session){
+        String email = session.getAttribute("email").toString();
+        loadDriver(dbDriver);
+        Connection con = getConnection();
+        PreparedStatement p = null;
+        ResultSet rs = null;
+        ResultSet rs2 = null;
+        String sql = "select ID from regtb where email=?";
+        int idCounter = 0;
+        int id = -1;
+        try {
+            p = con.prepareStatement(sql);
+            p.setString(1, email);
+            rs = p.executeQuery();
+            while (rs.next()) {
+                id = rs.getInt("id");
+                idCounter++;
+            }
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        rs2 = null;
+        String sql2 = "select title from content where fid = ?;";
+        int cOFFids = 0;
+        int fid = 0;
+        try{
+            p = con.prepareStatement(sql2);
+            p.setInt(1, id);
+            rs2 = p.executeQuery();
+            while (rs2.next()) {
+                cOFFids++;
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+        String[] Titles = new String[cOFFids];
+        int [] Ids = new int[cOFFids];
+        String sQl = "select ID from content where fid = ?;";
+        int counter = 0;
+        try{
+            p = con.prepareStatement(sQl);
+            p.setInt(1,id);
+            rs2 = p.executeQuery();
+            while(rs2.next()){
+                Ids[counter] = rs2.getInt("ID");
+                counter++;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        ResultSet rs3 = null;
+        String title = "bruh";
+        counter = 0;
+        try{
+            p = con.prepareStatement(sql2);
+            p.setInt(1, id);
+            rs3 = p.executeQuery();
+            while (rs3.next()) {
+                Titles[counter] = rs3.getString("title");
+                counter++;
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+        HashMap<Integer, String> titles = new HashMap<>();
+        for(int i = 0; i < cOFFids; i++){
+            titles.put(Ids[i], Titles[i]);
+        }
+
+        System.out.println(titles);
+        return titles;
+    }
+    public String giveContentText(int id){
+        String result = "null";
+        loadDriver(dbDriver);
+        Connection con = getConnection();
+        PreparedStatement p = null;
+        ResultSet rs = null;
+        String sql = "select text from content where id=?";
+        try {
+            p = con.prepareStatement(sql);
+            p.setInt(1, id);
+            rs = p.executeQuery();
+            while (rs.next()) {
+                result = rs.getString("text");
+            }
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return  result;
+    }
+    public String giveContentTitle(int id){
+        String result = "null";
+        loadDriver(dbDriver);
+        Connection con = getConnection();
+        PreparedStatement p = null;
+        ResultSet rs = null;
+        String sql = "select title from content where id=?";
+        try {
+            p = con.prepareStatement(sql);
+            p.setInt(1, id);
+            rs = p.executeQuery();
+            while (rs.next()) {
+                result = rs.getString("title");
+            }
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return  result;
+    }
+    public void updateContent(String title, String text, HttpSession session){
+        String email = session.getAttribute("email").toString();
+        String password = session.getAttribute("password").toString();
+//        System.out.println("In insertContent fun: " +  session.getAttribute("email"));
+        ResultSet resulset;
+        String result = null;
+        loadDriver(dbDriver);
+        Connection con = getConnection();
+        String sql = "SELECT ID FROM regtb WHERE email = ? and password = ?;";
+        PreparedStatement ps;
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setString(1, email);
+            ps.setString(2, password);
+            resulset = ps.executeQuery();
+            if(resulset.next()){
+//                System.out.println(resulset.getString("ID"));
+                result = resulset.getString("ID");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        String sql1 = "insert into content(title, text, fid) values(?, ?, ?);";
+        PreparedStatement ps1;
+
+        try {
+            ps1 = con.prepareStatement(sql1);
+            ps1.setString(1, title);
+            ps1.setString(2, text);
+            ps1.setString(3, result);
+            ps1.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
 
