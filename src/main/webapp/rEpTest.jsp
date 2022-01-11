@@ -24,6 +24,9 @@
     <li class="RL M R"><a href="rEpTest.jsp">Register</a></li>
     <div style="padding-bottom:2000px"></div>
 </ul>
+<%
+System.out.println("someone just clicked !!!!");
+%>
 <h1 id="RegBorder">
     <p class="MT">Start using Relook</p>
     <form  action="/regServ" method="post">

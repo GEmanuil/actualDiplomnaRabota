@@ -26,6 +26,7 @@
 <%
     String title = session.getAttribute("title").toString();
     String text = session.getAttribute("text").toString();
+    String id = session.getAttribute("id").toString();
 %>
 <h1 id="RegBorder">
     <p class="MT">Add your information here </p>

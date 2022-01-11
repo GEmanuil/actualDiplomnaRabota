@@ -12,9 +12,10 @@ public class readyToViewContentServlet extends HttpServlet {
         SQLJavaClass sqlJavaClass = new SQLJavaClass();
         HttpSession session = request.getSession();
         int id = Integer.parseInt(request.getParameter("id"));
+        session.setAttribute("id", id);
         String title = sqlJavaClass.giveContentTitle(id);
         String text = sqlJavaClass.giveContentText(id);
-        System.out.println("In servlet: " + title + text + "id: " + id);
+//        System.out.println("In servlet: " + title + text + "id: " + id);
         session.setAttribute("title", title);
         session.setAttribute("text", text);
         getServletContext().getRequestDispatcher("/readyToViewContent2.jsp").forward(request, response);

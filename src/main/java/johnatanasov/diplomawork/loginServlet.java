@@ -23,7 +23,6 @@ public class loginServlet extends HttpServlet{
             session.setAttribute("email", email);
             session.setAttribute("password", password);
             response.sendRedirect("relookMain.jsp");
-
         }
         else{
             PrintWriter out = response.getWriter();

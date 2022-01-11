@@ -424,42 +424,28 @@ public class SQLJavaClass {
         }
         return  result;
     }
-    public void updateContent(String title, String text, HttpSession session){
+    public void updateContent( String title, String text, HttpSession session){
         String email = session.getAttribute("email").toString();
         String password = session.getAttribute("password").toString();
 //        System.out.println("In insertContent fun: " +  session.getAttribute("email"));
-        ResultSet resulset;
+        int resulset;
         String result = null;
         loadDriver(dbDriver);
         Connection con = getConnection();
-        String sql = "SELECT ID FROM regtb WHERE email = ? and password = ?;";
+        String sql = "UPDATE content set title = ?, text = ? WHERE id = ?;";
         PreparedStatement ps;
+        String id = session.getAttribute("id").toString();
+        System.out.println("In Sqlclass: " + id + "  " + email + " " + password + " " + text + " " + title);
         try {
             ps = con.prepareStatement(sql);
-            ps.setString(1, email);
-            ps.setString(2, password);
-            resulset = ps.executeQuery();
-            if(resulset.next()){
-//                System.out.println(resulset.getString("ID"));
-                result = resulset.getString("ID");
-            }
-
+            ps.setString(1, title);
+            ps.setString(2, text);
+            ps.setInt(3, Integer.parseInt(id));
+            ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        String sql1 = "insert into content(title, text, fid) values(?, ?, ?);";
-        PreparedStatement ps1;
-
-        try {
-            ps1 = con.prepareStatement(sql1);
-            ps1.setString(1, title);
-            ps1.setString(2, text);
-            ps1.setString(3, result);
-            ps1.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 }
 
