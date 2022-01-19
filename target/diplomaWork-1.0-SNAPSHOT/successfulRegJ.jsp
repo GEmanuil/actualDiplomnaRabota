@@ -1,11 +1,11 @@
 <%--
   Created by IntelliJ IDEA.
   User: em4o_
-  Date: 19.12.2021 Ð³.
+  Date: 19.12.2021 ã.
   Time: 9:10
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=WINDOWS-1251" language="java" %>
 <head>
     <link rel="stylesheet" href="register.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">

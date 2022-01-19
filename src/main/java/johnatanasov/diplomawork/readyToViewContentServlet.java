@@ -5,10 +5,11 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "readyToViewContentServlet", urlPatterns = "/readyToViewContentServlet")
+@WebServlet(name = "readyToViewContentServlet", value = "/readyToViewContentServlet")
 public class readyToViewContentServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("WINDOWS-1251");
         SQLJavaClass sqlJavaClass = new SQLJavaClass();
         HttpSession session = request.getSession();
         int id = Integer.parseInt(request.getParameter("id"));

@@ -1,11 +1,11 @@
 <%--
   Created by IntelliJ IDEA.
   User: em4o_
-  Date: 14.12.2021 Ð³.
+  Date: 14.12.2021 ã.
   Time: 18:38
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=WINDOWS-1251" language="java" %>
 <head>
     <link rel="stylesheet" href="register.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
@@ -24,6 +24,9 @@
     <li class="RL M R"><a href="rEpTest.jsp">Register</a></li>
     <div style="padding-bottom:2000px"></div>
 </ul>
+<%
+System.out.println("someone just clicked !!!!");
+%>
 <h1 id="RegBorder">
     <p class="MT">Start using Relook</p>
     <form  action="/regServ" method="post">

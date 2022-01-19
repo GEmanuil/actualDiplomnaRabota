@@ -8,7 +8,7 @@ import javax.servlet.annotation.*;
 public class loginServlet extends HttpServlet{
     private final regInfoClass person = new regInfoClass();
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-
+        request.setCharacterEncoding("WINDOWS-1251");
         String message = "Email or password are not correct!!!";
         String message2 = ":) Good job :)";
         String email = request.getParameter("email");

@@ -38,6 +38,106 @@ body {
     background-color: rgb(0, 0, 0);
     border-radius: 5px;
 }
+#contentTest{
+    width: 150px;
+    float: none;
+    margin-right: 20px;
+    margin-top: 0px;
+    font-family:cursive;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    background-color: rgb(0, 0, 0);
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+}
+#addButton{
+    margin-left: auto;
+    position: relative;
+    background-color: #333333;
+    border: none;
+    font-size: 28px;
+    color: #FFFFFF;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+}
+#addButton:after {
+    content: "";
+    background: #f1f1f1;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px !important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+
+#addButton:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+}
+
+
+#questionButton{
+    background-color: #333333;
+    margin-left: auto;
+    position: relative;
+    border: none;
+    font-size: 28px;
+    color: #FFFFFF;
+    padding: 20px;
+    width: 1000px;
+    text-align: center;
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+}
+#addButton2{
+    margin-left: auto;
+    position: relative;
+    background-color: #333333;
+    border: none;
+    font-size: 28px;
+    color: #FFFFFF;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+}
+#addButton2:after {
+    content: "";
+    background: #f1f1f1;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px !important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+
+#addButton2:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+}
+
 /* This is a comment! */
 
 

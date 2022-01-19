@@ -14,6 +14,7 @@ public class register extends HttpServlet {
     private static final SQLJavaClass persons = new SQLJavaClass();
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    request.setCharacterEncoding("WINDOWS-1251");
     String firstName = request.getParameter("firstname");
     String lastName = request.getParameter("lastname");
     String email = request.getParameter("email");

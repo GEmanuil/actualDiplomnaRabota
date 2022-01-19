@@ -4,11 +4,11 @@
 <%@ page import="java.util.Iterator" %><%--
   Created by IntelliJ IDEA.
   User: em4o_
-  Date: 14.12.2021 Ð³.
+  Date: 14.12.2021 ã.
   Time: 18:38
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=WINDOWS-1251" language="java" %>
 
 <head>
     <link rel="stylesheet" href="/relookMain.css">

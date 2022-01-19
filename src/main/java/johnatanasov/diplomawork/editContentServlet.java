@@ -9,6 +9,7 @@ import java.io.IOException;
 public class editContentServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("WINDOWS-1251");
         SQLJavaClass sqlJavaClass = new SQLJavaClass();
         HttpSession session = request.getSession();
         String title = request.getParameter("title");

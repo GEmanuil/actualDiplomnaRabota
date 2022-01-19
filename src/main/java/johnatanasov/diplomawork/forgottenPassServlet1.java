@@ -7,6 +7,7 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+
 @WebServlet(name = "forgottenPassServlet1", value = "/forgottenPassServlet1")
 public class forgottenPassServlet1 extends HttpServlet {
     @Override

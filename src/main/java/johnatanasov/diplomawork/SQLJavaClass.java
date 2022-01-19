@@ -447,6 +447,175 @@ public class SQLJavaClass {
         }
 
     }
+    public void insertTest(String question, String answer, HttpSession session){
+        String email = session.getAttribute("email").toString();
+        String password = session.getAttribute("password").toString();
+        int id = (int) session.getAttribute("id");
+//        System.out.println("In insertContent fun: " +  session.getAttribute("email"));
+        ResultSet resulset = null;
+        String result = null;
+        loadDriver(dbDriver);
+        Connection con = getConnection();
+
+        String sql2 = "insert into tests(question, answer1, ford) values(?, ?, ?);";
+        PreparedStatement ps2;
+        try {
+            ps2 = con.prepareStatement(sql2);
+            ps2.setString(1, question);
+            ps2.setString(2, answer);
+            ps2.setInt(3, id);
+            ps2.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public void insertTest(String question,  HttpSession session, String A, String B, String C, String D){
+        String email = session.getAttribute("email").toString();
+        String password = session.getAttribute("password").toString();
+        int id = (int) session.getAttribute("id");
+        ResultSet resulset = null;
+        String result = null;
+        loadDriver(dbDriver);
+        Connection con = getConnection();
+
+        String sql2 = "insert into tests(question, ford, answer1, answer2, answer3, answer4) values(?, ?, ?, ?, ?, ?);";
+        PreparedStatement ps2;
+        try {
+            ps2 = con.prepareStatement(sql2);
+            ps2.setString(1, question);
+            ps2.setInt(2, id);
+            ps2.setString(3, A);
+            ps2.setString(4, B);
+            ps2.setString(5, C);
+            ps2.setString(6, D);
+            ps2.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public HashMap<Integer, String> giveTestTitles(HttpSession session){
+        String email = session.getAttribute("email").toString();
+        int idForContent = (int) session.getAttribute("id");
+        loadDriver(dbDriver);
+        Connection con = getConnection();
+        PreparedStatement p = null;
+        ResultSet rs = null;
+        ResultSet rs2 = null;
+        String sQl = "select question from tests where ford = ?;";
+        int counter = 0;
+        try{
+            p = con.prepareStatement(sQl);
+            p.setInt(1,idForContent);
+            rs2 = p.executeQuery();
+            while(rs2.next()){
+                counter++;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+        String[] Titles = new String[counter];
+
+        String sQl1 = "select question from tests where ford = ?;";
+        int counter2 = 0;
+        try{
+            p = con.prepareStatement(sQl1);
+            p.setInt(1,idForContent);
+            rs2 = p.executeQuery();
+            while(rs2.next()){
+                Titles[counter2] = rs2.getString("question");
+                counter2++;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        int[] IDsForQuestions = new int[counter];
+        String sQl2 = "select id from tests where ford = ?;";
+        counter2 = 0;
+        try{
+            p = con.prepareStatement(sQl2);
+            p.setInt(1,idForContent);
+            rs2 = p.executeQuery();
+            while(rs2.next()){
+                IDsForQuestions[counter2] = rs2.getInt("ID");
+                counter2++;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        HashMap<Integer, String> titlesIds = new HashMap<>();
+        for(int i = 0; i < counter; i++){
+            titlesIds.put(IDsForQuestions[i], Titles[i]);
+        }
+
+        return titlesIds;
+    }
+    public String[] giveTestAnswers(HttpSession session){
+        int idForQuestion = (int) session.getAttribute("idForQuestion");
+        loadDriver(dbDriver);
+        Connection con = getConnection();
+        PreparedStatement p = null;
+        ResultSet rs2 = null;
+        String[] answers = new String[4];
+        String sQl = "select answer1, answer2, answer3, answer4 from tests where ID = ?;";
+        try{
+            p = con.prepareStatement(sQl);
+            p.setInt(1,idForQuestion);
+            rs2 = p.executeQuery();
+            if(rs2.next()){
+                answers[0] = rs2.getString("answer1");
+                answers[1] = rs2.getString("answer2");
+                answers[2] = rs2.getString("answer3");
+                answers[3] = rs2.getString("answer4");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return answers;
+    }
+    public void updateQuestions(String question, String answer1, String answer2, String answer3, String answer4, HttpSession session){
+        int idForQuestion = (int) session.getAttribute("idForQuestion");
+        int resulset;
+        String result = null;
+        loadDriver(dbDriver);
+        Connection con = getConnection();
+        String sql = "UPDATE tests set question = ?, answer1 = ?, answer2 = ?, answer3 = ?, answer4 = ? WHERE id = ?;";
+        PreparedStatement ps;
+        String id = session.getAttribute("id").toString();
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setString(1, question);
+            ps.setString(2, answer1);
+            ps.setString(3, answer2);
+            ps.setString(4, answer3);
+            ps.setString(5, answer4);
+            ps.setInt(6, idForQuestion);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public void updateQuestion(String question, String answer, HttpSession session){
+        int idForQuestion = (int) session.getAttribute("idForQuestion");
+        int resulset;
+        String result = null;
+        loadDriver(dbDriver);
+        Connection con = getConnection();
+        String sql = "UPDATE tests set question = ?, answer1 = ? WHERE id = ?;";
+        PreparedStatement ps;
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setString(1, question);
+            ps.setString(2, answer);
+            ps.setInt(3, idForQuestion);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
 
 
