@@ -6,6 +6,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.Objects;
 
 @WebServlet(name = "servForTest", urlPatterns = "/servForTest")
 public class servForTest extends HttpServlet {
@@ -16,12 +17,28 @@ public class servForTest extends HttpServlet {
         request.setCharacterEncoding("WINDOWS-1251");
         String question = request.getParameter("Question");
         if(request.getParameter("answer") == null){
+            String trueSymbol = "-)$^`-";
+            String checkBox = request.getParameter("checkBox");
             String A =  request.getParameter("answerA");
             String B =  request.getParameter("answerB");
             String C =  request.getParameter("answerC");
             String D =  request.getParameter("answerD");
-            System.out.println(A + " " + B + " " + " " + C + " " + D);
+
             session.getAttribute("id");
+            switch (checkBox) {
+                case "A":
+                    A += trueSymbol;
+                    break;
+                case "B":
+                    B+=trueSymbol;
+                    break;
+                case "C":
+                    C+= trueSymbol;
+                    break;
+                case "D":
+                    D+= trueSymbol;
+                    break;
+            }
             sqlJavaClass.insertTest(question, session, A, B, C, D);
         }
 

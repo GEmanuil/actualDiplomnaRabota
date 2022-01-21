@@ -116,4 +116,14 @@ body {
     opacity: 1;
     transition: 0s
 }
+#codeTyped{
+    width: 150px;
+    margin-left: 20px;
+    font-family:cursive;
+    font-size: 35px;
+    color: rgb(251, 252, 216);
+    text-align: center;
+    border-radius: 5px;
+}
+
 /* This is a comment! */

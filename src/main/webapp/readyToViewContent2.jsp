@@ -26,8 +26,12 @@
     <input type="submit" id="editButton" name="editButton" value="EDIT">
 
 </form>
-<ul id="lr" class="RL">
-</ul>
+<%
+    String code = (String) session.getAttribute("code");
+%>
+<h2>
+    Share with this code: <%=code%>
+</h2>
 <h1 id="RegBorder">
     <p class="MT"></p>
     <p class="MT"> <%

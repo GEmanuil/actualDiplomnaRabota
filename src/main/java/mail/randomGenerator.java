@@ -16,7 +16,6 @@ public class randomGenerator {
             buffer.append((char) randomLimitedInt);
         }
         String generatedString = buffer.toString();
-
         return generatedString;
     }
 

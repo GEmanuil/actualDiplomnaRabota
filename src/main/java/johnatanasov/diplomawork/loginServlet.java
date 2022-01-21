@@ -1,7 +1,9 @@
 package johnatanasov.diplomawork;
 
 import java.io.*;
+import java.util.Objects;
 import javax.servlet.*;
+import mail.randomGenerator;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 @WebServlet(name = "loginServlet", urlPatterns = "/logServe")
@@ -19,10 +21,17 @@ public class loginServlet extends HttpServlet{
         person.setPassword(password);
 
         if(chek.check(person)){
+            String TorS = chek.checkForST(person);
             HttpSession session = request.getSession();
             session.setAttribute("email", email);
             session.setAttribute("password", password);
-            response.sendRedirect("relookMain.jsp");
+            if(Objects.equals(TorS, "teacher")){
+                response.sendRedirect("relookMain.jsp");
+            }
+            else if (Objects.equals(TorS, "student")){
+                response.sendRedirect("StRelookMain.jsp");
+                randomGenerator random = new randomGenerator();
+            }
         }
         else{
             PrintWriter out = response.getWriter();

@@ -39,7 +39,7 @@ public class register extends HttpServlet {
             session.setAttribute("code", code);
             session.setAttribute("personOb", person);
             mail.mailSend(email, code);
-            System.out.println("In reg: " + email + ", " + code);
+            System.out.println("In reg: " + email + ", " + code + ", " + password);
             getServletContext().getRequestDispatcher("/successfulRegJ.jsp").forward(request, response);
         }
         else{

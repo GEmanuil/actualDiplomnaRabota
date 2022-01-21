@@ -1,19 +1,11 @@
 package johnatanasov.diplomawork;
-import com.mysql.jdbc.Driver;
-import javax.servlet.*;
 import javax.servlet.http.*;
-import javax.servlet.annotation.*;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.lang.reflect.Member;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.HashMap;
-import java.util.Map;
 
 public class SQLJavaClass {
 
@@ -81,7 +73,7 @@ public class SQLJavaClass {
         return cheki;
     }
 
-    public void insertContent(String title, String text, HttpSession session){
+    public void insertContent(String title, String text, HttpSession session, String code){
         String email = session.getAttribute("email").toString();
         String password = session.getAttribute("password").toString();
 //        System.out.println("In insertContent fun: " +  session.getAttribute("email"));
@@ -105,7 +97,7 @@ public class SQLJavaClass {
             e.printStackTrace();
         }
 
-        String sql1 = "insert into content(title, text, fid) values(?, ?, ?);";
+        String sql1 = "insert into content(title, text, fid, code) values(?, ?, ?, ?);";
         PreparedStatement ps1;
 
         try {
@@ -113,6 +105,7 @@ public class SQLJavaClass {
             ps1.setString(1, title);
             ps1.setString(2, text);
             ps1.setString(3, result);
+            ps1.setString(4, code);
             ps1.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -168,13 +161,9 @@ public class SQLJavaClass {
                 ps.setInt(2, id);
                 ps.executeUpdate();
 
-        } catch (SQLException ex) {
+             } catch (SQLException ex) {
             ex.printStackTrace();
-        }
-//            ps = con.prepareStatement(sql);
-//            ps.setString(1, email);
-//            findID = ps.executeQuery().toString();
-//            System.out.println(findID);
+            }
         }
 
         public String giveLastContentTitle(HttpSession session){
@@ -615,6 +604,87 @@ public class SQLJavaClass {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+    public String checkForST(regInfoClass member) {
+        loadDriver(dbDriver);
+        Connection con = getConnection();
+        String sql = "SELECT sOrT FROM regtb  WHERE email = ? and password = ?;";
+        PreparedStatement ps;
+        String check = null;
+        ResultSet rs;
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setString(1, member.getEmail());
+            ps.setString(2, member.getPassword());
+            rs = ps.executeQuery();
+            if(rs.next()){
+                check = rs.getString("sOrT");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return check;
+    }
+    public String giveContentCode(int id){
+        String result = null;
+        loadDriver(dbDriver);
+        Connection con = getConnection();
+        PreparedStatement p = null;
+        ResultSet rs = null;
+        String sql = "select code from content where id=?";
+        try {
+            p = con.prepareStatement(sql);
+            p.setInt(1, id);
+            rs = p.executeQuery();
+            while (rs.next()) {
+                result = rs.getString("code");
+            }
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return  result;
+    }
+
+    public String giveContentTitle(String code){
+        String result = null;
+        loadDriver(dbDriver);
+        Connection con = getConnection();
+        PreparedStatement p = null;
+        ResultSet rs = null;
+        String sql = "select title from content where code=?";
+        try {
+            p = con.prepareStatement(sql);
+            p.setString(1, code);
+            rs = p.executeQuery();
+            while (rs.next()) {
+                result = rs.getString("title");
+            }
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return  result;
+    }
+    public String giveContentText(String code){
+        String result = null;
+        loadDriver(dbDriver);
+        Connection con = getConnection();
+        PreparedStatement p = null;
+        ResultSet rs = null;
+        String sql = "select text from content where code=?";
+        try {
+            p = con.prepareStatement(sql);
+            p.setString(1, code);
+            rs = p.executeQuery();
+            while (rs.next()) {
+                result = rs.getString("text");
+            }
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return  result;
     }
 }
 

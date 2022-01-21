@@ -33,13 +33,17 @@
         <textarea class="Register FN B" type="text" id="Question" name="Question" required></textarea><br><br>
         Answers:<br>
         <label class="Register LN" for="answerA">A</label>
-        <textarea class="Register LN B" type="text" id="answerA" name="answerA" required></textarea><br><br>
+        <textarea class="Register LN B" id="answerA" name="answerA" required></textarea>
+        <label><input checked id="1" type="radio" name="checkBox" value="A"></label><br><br>
         <label class="Register LN" for="answerB">B</label>
-        <textarea class="Register LN B" type="text" id="answerB" name="answerB" required></textarea><br><br>
+        <textarea class="Register LN B" id="answerB" name="answerB" required></textarea>
+        <label><input  id="2" type="radio" name="checkBox" value="B"></label><br><br>
         <label class="Register LN" for="answerC">C</label>
-        <textarea class="Register LN B" type="text" id="answerC" name="answerC" required></textarea><br><br>
+        <textarea class="Register LN B" id="answerC" name="answerC" required></textarea>
+        <label><input  id="3" type="radio" name="checkBox" value="C"></label><br><br>
         <label class="Register LN" for="answerD">D</label>
-        <textarea class="Register LN B" type="text" id="answerD" name="answerD" required></textarea><br><br>
+        <textarea class="Register LN B" id="answerD" name="answerD" required></textarea>
+        <label><input  id="4" type="radio" name="checkBox" value="D"></label><br><br>
         <input class="Register S" type="submit" value="SUBMIT"><br>
     </form>
 
