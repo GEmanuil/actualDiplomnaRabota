@@ -45,7 +45,6 @@ public class servForTest extends HttpServlet {
         else{
         String answer = request.getParameter("answer");
         session.getAttribute("id");
-        System.out.println(request.getParameter("Question") + " " + request.getParameter("answer") + " " + session.getAttribute("id"));
         sqlJavaClass.insertTest(question, answer, session);
         }
 

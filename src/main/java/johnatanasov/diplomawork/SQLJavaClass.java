@@ -829,16 +829,33 @@ public class SQLJavaClass {
         Enumeration<String> sesiq = session.getAttributeNames();
         int questionID = (int) session.getAttribute("idToSet");
         int idInRegtbOFContentOwner = (int) session.getAttribute("idInRegtbOFContentOwner");
-
+        String emailOfTestMaker = (String) session.getAttribute("email");
+        int emailId = 0;
         loadDriver(dbDriver);
         Connection con = getConnection();
-        String sql = "insert into answersInfo(answer, fkeyRegTb, fkeyTests) values (?, ?, ?);";
         PreparedStatement ps;
+        ResultSet resulset;
+        String sql0 = "SELECT ID FROM regtb WHERE email = ?;";
+        try {
+            ps = con.prepareStatement(sql0);
+            ps.setString(1, emailOfTestMaker);
+            resulset = ps.executeQuery();
+            if(resulset.next()){
+                emailId = resulset.getInt("ID");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        String sql = "insert into answersInfo(answer, fkeyRegTbContentOwner, fkeyTests, fkeyRegTbTestmaker) values (?, ?, ?, ?);";
+
         try {
             ps = con.prepareStatement(sql);
             ps.setString(1, answer);
             ps.setInt(2, idInRegtbOFContentOwner);
             ps.setInt(3, questionID);
+            ps.setInt(4, emailId);
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
