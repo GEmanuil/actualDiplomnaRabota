@@ -17,7 +17,7 @@ public class servForTest extends HttpServlet {
         request.setCharacterEncoding("WINDOWS-1251");
         String question = request.getParameter("Question");
         if(request.getParameter("answer") == null){
-            String trueSymbol = "-)$^`-";
+            String trueSymbol = "}";
             String checkBox = request.getParameter("checkBox");
             String A =  request.getParameter("answerA");
             String B =  request.getParameter("answerB");
@@ -27,16 +27,16 @@ public class servForTest extends HttpServlet {
             session.getAttribute("id");
             switch (checkBox) {
                 case "A":
-                    A += trueSymbol;
+                    A = trueSymbol + A;
                     break;
                 case "B":
-                    B+=trueSymbol;
+                    B = trueSymbol + B;
                     break;
                 case "C":
-                    C+= trueSymbol;
+                    C = trueSymbol + C;
                     break;
                 case "D":
-                    D+= trueSymbol;
+                    D = trueSymbol + D;
                     break;
             }
             sqlJavaClass.insertTest(question, session, A, B, C, D);

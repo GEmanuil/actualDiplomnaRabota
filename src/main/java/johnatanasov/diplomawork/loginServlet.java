@@ -26,9 +26,11 @@ public class loginServlet extends HttpServlet{
             session.setAttribute("email", email);
             session.setAttribute("password", password);
             if(Objects.equals(TorS, "teacher")){
+                session.setAttribute("st", "teacher");
                 response.sendRedirect("relookMain.jsp");
             }
             else if (Objects.equals(TorS, "student")){
+                session.setAttribute("st", "student");
                 response.sendRedirect("StRelookMain.jsp");
                 randomGenerator random = new randomGenerator();
             }

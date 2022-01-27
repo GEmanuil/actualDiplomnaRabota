@@ -15,11 +15,11 @@ public class codeEnterServlet extends HttpServlet {
         request.setCharacterEncoding("WINDOWS-1251");
         SQLJavaClass sqlJavaClass = new SQLJavaClass();
         String code = request.getParameter("code");
-        String title = sqlJavaClass.giveContentTitle(code);
+        String title = sqlJavaClass.giveContentTitle(code, session);
         String text = sqlJavaClass.giveContentText(code);
-        System.out.println(title + text);
         session.setAttribute("title", title);
         session.setAttribute("text", text);
+        session.setAttribute("code", code);
         getServletContext().getRequestDispatcher("/readyToViewContent2.jsp").forward(request, response);
     }
 }

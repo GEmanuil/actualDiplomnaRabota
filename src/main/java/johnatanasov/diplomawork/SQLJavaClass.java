@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.HashMap;
 
 public class SQLJavaClass {
@@ -20,7 +22,6 @@ public class SQLJavaClass {
         } catch (ClassNotFoundException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-            System.out.println();
         }
     }
 
@@ -369,8 +370,6 @@ public class SQLJavaClass {
         for(int i = 0; i < cOFFids; i++){
             titles.put(Ids[i], Titles[i]);
         }
-
-        System.out.println(titles);
         return titles;
     }
     public String giveContentText(int id){
@@ -424,7 +423,6 @@ public class SQLJavaClass {
         String sql = "UPDATE content set title = ?, text = ? WHERE id = ?;";
         PreparedStatement ps;
         String id = session.getAttribute("id").toString();
-        System.out.println("In Sqlclass: " + id + "  " + email + " " + password + " " + text + " " + title);
         try {
             ps = con.prepareStatement(sql);
             ps.setString(1, title);
@@ -646,13 +644,13 @@ public class SQLJavaClass {
         return  result;
     }
 
-    public String giveContentTitle(String code){
+    public String giveContentTitle(String code, HttpSession session){
         String result = null;
         loadDriver(dbDriver);
         Connection con = getConnection();
         PreparedStatement p = null;
         ResultSet rs = null;
-        String sql = "select title from content where code=?";
+        String sql = "select title from content where code=?;";
         try {
             p = con.prepareStatement(sql);
             p.setString(1, code);
@@ -660,6 +658,20 @@ public class SQLJavaClass {
             while (rs.next()) {
                 result = rs.getString("title");
             }
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        String sql2 = "select fid from content where code=?;";
+        int idInRegtbOFContentOwner = 0;
+        try {
+            p = con.prepareStatement(sql2);
+            p.setString(1, code);
+            rs = p.executeQuery();
+            while (rs.next()) {
+                idInRegtbOFContentOwner = rs.getInt("fid");
+            }
+            session.setAttribute("idInRegtbOFContentOwner", idInRegtbOFContentOwner);
         }
         catch (SQLException ex) {
             ex.printStackTrace();
@@ -686,6 +698,154 @@ public class SQLJavaClass {
         }
         return  result;
     }
+
+    public Integer giveNumberOfQuestions(String code){
+        int number = -1;
+        loadDriver(dbDriver);
+        Connection con = getConnection();
+        PreparedStatement p = null;
+        ResultSet rs = null;
+        String sql = "select id from content where code=?";
+        try {
+            p = con.prepareStatement(sql);
+            p.setString(1, code);
+            rs = p.executeQuery();
+            while (rs.next()) {
+                number = rs.getInt("id");
+            }
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        Integer result = 0;
+        String sql2 = "select question from tests where ford=?";
+        try {
+            p = con.prepareStatement(sql2);
+            p.setInt(1, number);
+            rs = p.executeQuery();
+            while (rs.next()) {
+                result++;
+            }
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return result;
+    }
+    public ArrayList<Integer> giveQuestionsIDs(String code){
+        int number = -1;
+        loadDriver(dbDriver);
+        Connection con = getConnection();
+        PreparedStatement p = null;
+        ResultSet rs = null;
+        String sql = "select id from content where code=?";
+        try {
+            p = con.prepareStatement(sql);
+            p.setString(1, code);
+            rs = p.executeQuery();
+            while (rs.next()) {
+                number = rs.getInt("id");
+            }
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        Integer result = 0;
+        String sql2 = "select question from tests where ford=?";
+        try {
+            p = con.prepareStatement(sql2);
+            p.setInt(1, number);
+            rs = p.executeQuery();
+            while (rs.next()) {
+                result++;
+            }
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        String sql3 = "select ID from tests where ford=?";
+        ArrayList<Integer> idsOfquestions = new ArrayList<>(result);
+        try {
+            p = con.prepareStatement(sql3);
+            p.setInt(1, number);
+            rs = p.executeQuery();
+            while(rs.next()){
+                idsOfquestions.add(rs.getInt("ID"));
+            }
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return idsOfquestions;
+    }
+
+    public String giveTestQuestion(int questionID){
+        loadDriver(dbDriver);
+        Connection con = getConnection();
+        PreparedStatement p = null;
+        ResultSet rs = null;
+        String sql = "select question from tests where ID=?";
+        String result = "Something went wrong!!";
+        try {
+            p = con.prepareStatement(sql);
+            p.setInt(1, questionID);
+            rs = p.executeQuery();
+            while (rs.next()) {
+                result = rs.getString("question");
+            }
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return result;
+    }
+    public String[] giveTestAnswers(int questionID){
+        loadDriver(dbDriver);
+        Connection con = getConnection();
+        PreparedStatement p = null;
+        ResultSet rs2 = null;
+        String[] answers = new String[4];
+        String sQl = "select answer1, answer2, answer3, answer4 from tests where ID = ?;";
+        try{
+            p = con.prepareStatement(sQl);
+            p.setInt(1,questionID);
+            rs2 = p.executeQuery();
+            if(rs2.next()){
+                answers[0] = rs2.getString("answer1");
+                answers[1] = rs2.getString("answer2");
+                answers[2] = rs2.getString("answer3");
+                answers[3] = rs2.getString("answer4");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return answers;
+    }
+
+    public void insertanswersInfo(String answer, HttpSession session){
+        Enumeration<String> sesiq = session.getAttributeNames();
+        int questionID = (int) session.getAttribute("idToSet");
+        int idInRegtbOFContentOwner = (int) session.getAttribute("idInRegtbOFContentOwner");
+
+        loadDriver(dbDriver);
+        Connection con = getConnection();
+        String sql = "insert into answersInfo(answer, fkeyRegTb, fkeyTests) values (?, ?, ?);";
+        PreparedStatement ps;
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setString(1, answer);
+            ps.setInt(2, idInRegtbOFContentOwner);
+            ps.setInt(3, questionID);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 }
 
 
