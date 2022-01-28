@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.Objects;
 
 public class SQLJavaClass {
 
@@ -848,6 +849,21 @@ public class SQLJavaClass {
             e.printStackTrace();
         }
 
+        if(Objects.equals(answer, "answer1") || Objects.equals(answer, "answer2") || Objects.equals(answer, "answer3") || Objects.equals(answer, "answer4")) {
+            String sql3 = "SELECT " + answer + " as answer FROM tests WHERE id = ?;";
+            try {
+                ps = con.prepareStatement(sql3);
+                ps.setInt(1, questionID);
+                resulset = ps.executeQuery();
+                if (resulset.next()) {
+                    answer = resulset.getString("answer");
+                }
+                System.out.println("??: " + answer);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
         String sql = "insert into answersInfo(answer, fkeyRegTbContentOwner, fkeyTests, fkeyRegTbTestmaker) values (?, ?, ?, ?);";
 
         try {
@@ -861,6 +877,51 @@ public class SQLJavaClass {
             e.printStackTrace();
         }
 
+
+
+    }
+
+    public int givepersonId(HttpSession session) {
+        String emailOfTestMaker = (String) session.getAttribute("email");
+        loadDriver(dbDriver);
+        Connection con = getConnection();
+        PreparedStatement ps;
+        ResultSet resulset;
+        int emailId = 0;
+        String sql0 = "SELECT ID FROM regtb WHERE email = ?;";
+        try {
+            ps = con.prepareStatement(sql0);
+            ps.setString(1, emailOfTestMaker);
+            resulset = ps.executeQuery();
+            if (resulset.next()) {
+                emailId = resulset.getInt("ID");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return emailId;
+    }
+    public String giveAnsweredAnswer(int questioID, HttpSession session){
+        int testMaker = (int) session.getAttribute("userID");
+        loadDriver(dbDriver);
+        Connection con = getConnection();
+        PreparedStatement ps;
+        ResultSet resulset;
+        String answer = null;
+        String sql0 = "SELECT answer FROM answersInfo WHERE fkeyRegTbTestmaker = ? and fkeyTests = ?;";
+        try {
+            ps = con.prepareStatement(sql0);
+            ps.setInt(1, testMaker);
+            ps.setInt(2, questioID);
+            resulset = ps.executeQuery();
+            if (resulset.next()) {
+                answer = resulset.getString("answer");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return answer;
     }
 
 }

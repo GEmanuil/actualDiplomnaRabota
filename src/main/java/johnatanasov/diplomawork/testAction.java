@@ -29,7 +29,7 @@ public class testAction extends HttpServlet {
 //            System.out.println("Selected: "+list.remove(index));
 //        }
         if(list.size() < 1){
-            getServletContext().getRequestDispatcher("/testResult.jsp").forward(request, response);
+            getServletContext().getRequestDispatcher("/testResultServlet").forward(request, response);
         }
         else {
 

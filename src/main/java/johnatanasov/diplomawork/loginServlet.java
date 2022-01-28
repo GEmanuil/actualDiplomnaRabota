@@ -25,6 +25,7 @@ public class loginServlet extends HttpServlet{
             HttpSession session = request.getSession();
             session.setAttribute("email", email);
             session.setAttribute("password", password);
+            session.setAttribute("userID", chek.givepersonId(session));
             if(Objects.equals(TorS, "teacher")){
                 session.setAttribute("st", "teacher");
                 response.sendRedirect("relookMain.jsp");
