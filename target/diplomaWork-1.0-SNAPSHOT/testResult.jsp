@@ -57,9 +57,25 @@
                 char[] newanswerArr = new char[answerArr.length - 1];
                 System.arraycopy(answerArr, 1, newanswerArr, 0, newanswerArr.length);
                 answer = String.valueOf(newanswerArr);
+
+                    if (answerPlaced.startsWith("}")) {
+                        String answer2 = answers[j];
+                        char[] answerArr1 = answer2.toCharArray();
+                        char[] newanswerArr2 = new char[answerArr1.length - 1];
+                        System.arraycopy(answerArr1, 1, newanswerArr2, 0, newanswerArr2.length);
+                        answerPlaced = String.valueOf(newanswerArr2);
                 %>
-                <%=answer%> <br>
-                Answer placed: <%=answerPlaced%>
+    <%=answer%> <br>
+    Answer placed: <%=answerPlaced%>
+    <br>
+    <%
+    %>
+
+    <%
+        }
+
+                %>
+
     <br>
     <%
     %>

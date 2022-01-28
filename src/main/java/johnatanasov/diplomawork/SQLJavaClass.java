@@ -858,7 +858,6 @@ public class SQLJavaClass {
                 if (resulset.next()) {
                     answer = resulset.getString("answer");
                 }
-                System.out.println("??: " + answer);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -876,9 +875,6 @@ public class SQLJavaClass {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-
-
     }
 
     public int givepersonId(HttpSession session) {
