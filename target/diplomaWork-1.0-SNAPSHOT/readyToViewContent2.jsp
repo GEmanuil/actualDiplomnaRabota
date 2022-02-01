@@ -10,6 +10,10 @@
 <%@ page import="johnatanasov.diplomawork.SQLJavaClass" %>
 <%@ page import="mail.*" %>
 <%@ page import="java.util.Objects" %>
+<%@ page import="java.util.HashMap" %>
+<%@ page import="java.util.HashMap" %>
+<%@ page import="java.util.Set" %>
+<%@ page import="java.util.Iterator" %>
 <head>
     <link rel="stylesheet" href="/addingContent.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
@@ -49,19 +53,44 @@
         String text = session.getAttribute("text").toString();
     %>
     <%= text %>
-</h2>
+</h2><hr/>
 <%
 
-    if(Objects.equals(st, "teacher")){%>
-        <form draggable="true" action="makingTest.jsp">
-    <input type="submit" id="contentTest" name="contentTest" value="Create a test">
+    if(Objects.equals(st, "teacher")){
 
-</form>
-  <%}
-else if (Objects.equals(st, "student")){ %>
+%>
+        <form draggable="true" action="makingTest.jsp">
+        <input type="submit" id="contentTest" name="contentTest" value="Create a test">
+        </form>
+
+        <% HashMap<Integer, String> idNamesOftestMakers = sqlJavaClass.giveNamesOfTestMakers(session);
+
+            String a;
+            Iterator<Integer> keySet = idNamesOftestMakers.keySet().iterator();
+            while(keySet.hasNext()){
+                int key = keySet.next();
+                a = idNamesOftestMakers.get(key);
+        %>
+<a href="/testResultServlet?id=<%=key%>"><button type="button" id="addButton1" name="addContent"><%=a%></button></a>
+<%
+    }
+
+  }
+else if (Objects.equals(st, "student")){
+  if(!sqlJavaClass.checkForMadeTest(session)){
+
+  %>
       <form draggable="true" action="testAction.jsp">
     <input type="submit" id="addButton" name="makeingTest" value="Make the test">
 </form>
-  <% }%>
+  <% }
+  else{%>
+<form draggable="true" action="/testResultServlet" method="get">
+    <input type="submit" id="addButton2" name="makeingTest2" value="See results">
+
+<%
+  }
+}
+%>
 
 </html>

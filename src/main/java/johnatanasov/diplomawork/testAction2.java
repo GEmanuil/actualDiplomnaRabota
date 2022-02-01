@@ -9,7 +9,7 @@ import java.util.Enumeration;
 @WebServlet(name = "testAction2", value = "/testAction2")
 public class testAction2 extends HttpServlet {
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("WINDOWS-1251");
         HttpSession session = request.getSession();
         SQLJavaClass sqlJavaClass = new SQLJavaClass();

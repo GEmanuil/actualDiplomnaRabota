@@ -20,6 +20,10 @@ public class codeEnterServlet extends HttpServlet {
         session.setAttribute("title", title);
         session.setAttribute("text", text);
         session.setAttribute("code", code);
+        boolean checkIfMade = sqlJavaClass.checkForMadeTest(session);
+        System.out.println("In servlet check of made: " + checkIfMade);
         getServletContext().getRequestDispatcher("/readyToViewContent2.jsp").forward(request, response);
+
+
     }
 }

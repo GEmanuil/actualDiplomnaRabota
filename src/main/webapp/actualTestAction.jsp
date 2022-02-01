@@ -1,10 +1,5 @@
 <%@ page import="johnatanasov.diplomawork.SQLJavaClass" %>
-<%@ page import="java.util.HashMap" %>
-<%@ page import="java.util.Set" %>
-<%@ page import="java.util.Iterator" %>
 <%@ page contentType="text/html;charset=WINDOWS-1251" language="java" %>
-<%@ page import="johnatanasov.diplomawork.*"  %>
-<%@ page import="mail.*"  %>
 <%@ page import="java.util.ArrayList" %>
 <html>
 <head>
@@ -16,7 +11,11 @@
 <body>
 
 </body>
-
+<script type="text/javascript">
+    function preback() {window.history.forward();}
+    setTimeout("preback()", 0);
+    window.onunload = function () {null};
+</script>
 <h1 id="mainTxt" draggable="true">
     Relook
 </h1>
@@ -46,7 +45,7 @@
 
 
             if(answer3 == null){ %>
-        <form action="/testAction2" method="post">
+        <form action="/testAction2" method="get">
         <label for="answerTATA"></label>
         <textarea id="answerTATA" name="answerTATA" required></textarea><br><br>
 
@@ -54,7 +53,7 @@
 
         else{ %>
 
-    <form action="/testAction2" method="post">
+    <form action="/testAction2" method="get">
     <label><input id="1" type="radio" name="checkBox" value="answer1" required></label>
     <label class="Register LN">A) <%=answer1%></label><br><br>
 

@@ -11,7 +11,7 @@ import java.util.Random;
 @WebServlet(name = "testAction", value = "/testAction")
 public class testAction extends HttpServlet {
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("WINDOWS-1251");
         HttpSession session = request.getSession();
         SQLJavaClass sqlJavaClass = new SQLJavaClass();

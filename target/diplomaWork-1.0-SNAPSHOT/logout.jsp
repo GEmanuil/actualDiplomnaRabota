@@ -16,6 +16,7 @@
         HttpSession ses = request.getSession();
         ses.removeAttribute("password");
         ses.removeAttribute("email");
+        ses.removeAttribute("userID");
         ses.invalidate();
         response.sendRedirect("login.jsp");
     %>

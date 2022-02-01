@@ -44,12 +44,12 @@
 
         Question: <%= actualQuestion%> <br>
     <% if(answers[3] == null) { %>
-        True answer: <%= answers[0]%> <br>
+        Correct answer: <%= answers[0]%> <br>
         Answer placed: <%=answerPlaced%>
     <br>
     <% }
     else{ %>
-    True answer: <%
+    Correct answer: <%
         for(int j = 0; j < 4; j++){
             if (answers[j].startsWith("}")) {
                 String answer = answers[j];
@@ -64,6 +64,8 @@
                         char[] newanswerArr2 = new char[answerArr1.length - 1];
                         System.arraycopy(answerArr1, 1, newanswerArr2, 0, newanswerArr2.length);
                         answerPlaced = String.valueOf(newanswerArr2);
+                    }
+
                 %>
     <%=answer%> <br>
     Answer placed: <%=answerPlaced%>
@@ -75,13 +77,11 @@
         }
 
                 %>
-
-    <br>
     <%
     %>
 
    <%
-            }
+
         }
 
 
