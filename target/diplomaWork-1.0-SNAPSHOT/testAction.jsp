@@ -34,7 +34,7 @@
         The test has <%=numberOfQuestions%> questions. If you feel prepared click the start button to generate the test!!!
         
     </p>
-    <form action="/testAction" method="post">
+    <form action="/testAction" method="get">
         <input type="submit" value="START" id="addButton">
     </form>
 

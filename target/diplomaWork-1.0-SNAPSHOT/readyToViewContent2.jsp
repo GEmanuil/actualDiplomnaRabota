@@ -59,11 +59,26 @@
     if(Objects.equals(st, "teacher")){
 
 %>
+
+    <%
+        if(sqlJavaClass.checkForHasTest(session)){
+    %>
+
+
         <form draggable="true" action="makingTest.jsp">
-        <input type="submit" id="contentTest" name="contentTest" value="Create a test">
+        <input type="submit" id="contentTest" name="contentTest" value="Edit test">
+        </form>
+        <p>People who made the test: </p>
+    <% }
+
+    else{
+    %>
+        <form draggable="true" action="makingTest.jsp">
+            <input type="submit" id="contentTest2" name="contentTest" value="Create a test">
         </form>
 
-        <% HashMap<Integer, String> idNamesOftestMakers = sqlJavaClass.giveNamesOfTestMakers(session);
+        <% }
+            HashMap<Integer, String> idNamesOftestMakers = sqlJavaClass.giveNamesOfTestMakers(session);
 
             String a;
             Iterator<Integer> keySet = idNamesOftestMakers.keySet().iterator();
@@ -77,6 +92,7 @@
 
   }
 else if (Objects.equals(st, "student")){
+    //session.setAttribute("id", );
   if(!sqlJavaClass.checkForMadeTest(session)){
 
   %>

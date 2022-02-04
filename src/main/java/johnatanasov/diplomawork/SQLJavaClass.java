@@ -1,7 +1,7 @@
 package johnatanasov.diplomawork;
 import sun.net.www.http.HttpCaptureOutputStream;
-
 import javax.servlet.http.*;
+import javax.sql.rowset.serial.SerialArray;
 import java.awt.*;
 import java.net.Inet4Address;
 import java.sql.*;
@@ -675,6 +675,24 @@ public class SQLJavaClass {
         catch (SQLException ex) {
             ex.printStackTrace();
         }
+
+
+        String sql3 = "select id from content where code=?;";
+        int idOfcontent = -1;
+        try {
+            p = con.prepareStatement(sql3);
+            p.setString(1, code);
+            rs = p.executeQuery();
+            while (rs.next()) {
+                idOfcontent = rs.getInt("id");
+            }
+            session.setAttribute("id", idOfcontent);
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+
         return  result;
     }
     public String giveContentText(String code){
@@ -828,6 +846,7 @@ public class SQLJavaClass {
         Enumeration<String> sesiq = session.getAttributeNames();
         int questionID = (int) session.getAttribute("idToSet");
         int idInRegtbOFContentOwner = (int) session.getAttribute("idInRegtbOFContentOwner");
+        int contentId = (int) session.getAttribute("id");
         String emailOfTestMaker = (String) session.getAttribute("email");
         int emailId = 0;
         loadDriver(dbDriver);
@@ -861,7 +880,7 @@ public class SQLJavaClass {
             }
         }
 
-        String sql = "insert into answersInfo(answer, fkeyRegTbContentOwner, fkeyTests, fkeyRegTbTestmaker) values (?, ?, ?, ?);";
+        String sql = "insert into answersInfo(answer, fkeyRegTbContentOwner, fkeyTests, fkeyRegTbTestmaker, fkeyContentId) values (?, ?, ?, ?, ?);";
 
         try {
             ps = con.prepareStatement(sql);
@@ -869,6 +888,7 @@ public class SQLJavaClass {
             ps.setInt(2, idInRegtbOFContentOwner);
             ps.setInt(3, questionID);
             ps.setInt(4, emailId);
+            ps.setInt(5, contentId);
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -919,22 +939,81 @@ public class SQLJavaClass {
     }
 
     public boolean  checkForMadeTest(HttpSession session){
-            int personId = (int) session.getAttribute("userID");
-            loadDriver(dbDriver);
-            Connection con = getConnection();
-            String sql = "SELECT * FROM answersInfo WHERE fkeyRegTbTestmaker = ?;";
-            PreparedStatement ps;
-            boolean cheki;
+        int personId = (int) session.getAttribute("userID");
+        String currentContentCode = (String) session.getAttribute("code");
+        loadDriver(dbDriver);
+        Connection con = getConnection();
+        String sql = "SELECT fkeyTests FROM answersInfo WHERE fkeyRegTbTestmaker = ?;";
+        PreparedStatement ps;
+        ResultSet rs;
+        boolean cheki = false;
+        ArrayList<Integer> allAnsweredQuestios = new ArrayList<>();
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, personId);
+//                cheki = ps.executeQuery().next();
+            rs = ps.executeQuery();
+            for (int i = 0; rs.next(); i++){
+                allAnsweredQuestios.add(i, rs.getInt("fkeyTests"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            cheki = false;
+        }
+        if(allAnsweredQuestios.size() < 1){
+            cheki = false;
+        }
+        else {
+            int contentID = -1;
+            ArrayList<Integer> allMadeContents = new ArrayList<>();
             try {
-                ps = con.prepareStatement(sql);
-                ps.setInt(1, personId);
-                cheki = ps.executeQuery().next();
+                String sql2 = "SELECT ford FROM tests WHERE ID in (";
+                String temp = "";
+                for (int i = 0; i < allAnsweredQuestios.size(); i++) {
+                    temp += ",?";
+                }
+                temp = temp.replaceFirst(",", "");
+                temp += ")";
+                sql2 = sql2 + temp;
+                ps = con.prepareStatement(sql2);
+
+                for (int i = 0; i < allAnsweredQuestios.size(); i++) {
+                    ps.setInt(i + 1, allAnsweredQuestios.get(i));
+                }
+                rs = ps.executeQuery();
+                int contentCounter = -1;
+                while (rs.next()) {
+                    if (contentCounter != rs.getInt("ford")) {
+                        allMadeContents.add(rs.getInt("ford"));
+                        contentCounter = rs.getInt("ford");
+                    }
+                }
             } catch (SQLException e) {
                 e.printStackTrace();
                 cheki = false;
             }
-            return cheki;
+            String sql3 = "SELECT ID FROM content WHERE code = ?;";
+            int idOfCurrentContent = -1;
+            try {
+                ps = con.prepareStatement(sql3);
+                ps.setString(1, currentContentCode);
+                rs = ps.executeQuery();
+                if (rs.next()) {
+                    idOfCurrentContent = rs.getInt("ID");
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+                cheki = false;
+            }
+
+            for (int i = 0; i < allMadeContents.size(); i++) {
+                if (idOfCurrentContent == allMadeContents.get(i)) {
+                    cheki = true;
+                }
+            }
         }
+            return cheki;
+    }
 
     public HashMap<Integer, String> giveNamesOfTestMakers(HttpSession session){
         int contentId = (int) session.getAttribute("id");
@@ -943,25 +1022,30 @@ public class SQLJavaClass {
         PreparedStatement ps;
         ResultSet rs2;
 //        String sql = "SELECT Firstname FROM answersInfo, regtb WHERE fkeyRegTbTestmaker = regtb.ID and fkeyTests = ?;";
-        String sql = "SELECT fid FROM content WHERE ID = ?;";
-        int idOfcontentOwner = -1;
-        try {
-            ps = con.prepareStatement(sql);
-            ps.setInt(1, contentId);
-            rs2 = ps.executeQuery();
-            while(rs2.next()){
-                idOfcontentOwner = rs2.getInt("fid");
-            }
-        }
-        catch (SQLException e) {
-            e.printStackTrace();
-        }
-        String sql2 = "SELECT fkeyRegTbTestmaker FROM answersInfo WHERE fkeyRegTbContentOwner = ?;";
+//        String sql = "SELECT fkeyRegTbTestmaker FROM content WHERE fkeyContentId = ?;";
+//        int checker123 = -1;
+//        ArrayList<Integer> testMakers = new ArrayList<>();
+//        try {
+//            ps = con.prepareStatement(sql);
+//            ps.setInt(1, contentId);
+//            rs2 = ps.executeQuery();
+//            while(rs2.next()){
+//                if(checker123 != rs2.getInt("fkeyRegTbTestmaker")) {
+//                    checker123 = rs2.getInt("fkeyRegTbTestmaker");
+//                    testMakers.add(rs2.getInt("fkeyRegTbTestmaker"));
+//                }
+//            }
+//        }
+//        catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+
+        String sql2 = "SELECT fkeyRegTbTestmaker FROM answersInfo WHERE fkeyContentId = ?;";
         List<Integer> regtbid = new ArrayList<Integer>();
         int testmakerCounter = -1;
         try {
             ps = con.prepareStatement(sql2);
-            ps.setInt(1, idOfcontentOwner);
+            ps.setInt(1, contentId);
             rs2 = ps.executeQuery();
             while(rs2.next()){
                 if(testmakerCounter != rs2.getInt("fkeyRegTbTestmaker")) {
@@ -991,6 +1075,47 @@ public class SQLJavaClass {
         for (int i = 0; i < regtbid.size(); i++){
             result.put(regtbid.get(i), fnames.get(i));
         }
+        System.out.println("Test makers: " + result);
         return result;
+    }
+    public boolean checkForHasTest(HttpSession session){
+        String currentContentCode = (String) session.getAttribute("code");
+        loadDriver(dbDriver);
+        Connection con = getConnection();
+        PreparedStatement ps;
+        ResultSet rs;
+        String sql3 = "SELECT ID FROM content WHERE code = ?;";
+        boolean cheki = false;
+        int idOfCurrentContent = -1;
+        try {
+            ps = con.prepareStatement(sql3);
+            ps.setString(1, currentContentCode);
+            rs = ps.executeQuery();
+            if(rs.next()) {
+                idOfCurrentContent = rs.getInt("ID");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        String sql = "SELECT ID FROM tests WHERE ford = ?;";
+        ArrayList<Integer> idsOfQuestionsCreated = new ArrayList<>();
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, idOfCurrentContent);
+            rs = ps.executeQuery();
+            while(rs.next()) {
+                idsOfQuestionsCreated.add(rs.getInt("ID"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        if(idsOfQuestionsCreated.size() < 1){
+            cheki = false;
+        }
+        else{
+            cheki = true;
+        }
+        System.out.println("Made test? : " + cheki);
+        return cheki;
     }
 }
