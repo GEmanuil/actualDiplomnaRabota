@@ -27,6 +27,22 @@ public class ServForQuestionEdit extends HttpServlet {
             getServletContext().getRequestDispatcher("/EditTest4.jsp").forward(request, response);
         }
         else{
+
+            for(int i = 0; i < answers.length; i++){
+                String checker = answers[i];
+                if(checker.startsWith("}")){
+                    String answer = answers[i];
+                    char[] answerArr = answer.toCharArray();
+                    char[] newanswerArr = new char[answerArr.length - 1];
+                    for (int j = 0; j < newanswerArr.length; j++) {
+                        newanswerArr[j] = answerArr[j + 1];
+                    }
+                    answer = String.valueOf(newanswerArr);
+                    answers[i] = answer;
+                }
+            }
+
+
             request.setAttribute("title", title);
             request.setAttribute("answers", answers);
             getServletContext().getRequestDispatcher("/EditTest5.jsp").forward(request, response);

@@ -41,12 +41,13 @@ public class servForTest extends HttpServlet {
             }
             sqlJavaClass.insertTest(question, session, A, B, C, D);
         }
-
         else{
         String answer = request.getParameter("answer");
         session.getAttribute("id");
         sqlJavaClass.insertTest(question, answer, session);
         }
+
+        getServletContext().getRequestDispatcher("/makingTest.jsp?contentTest=Make+a+test").forward(request, response);
 
     }
 }
