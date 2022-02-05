@@ -24,9 +24,9 @@
     <li class="RL M R"><a href="register.html">Register</a></li>
     <div style="padding-bottom:2000px"></div>
 </ul>
-<h1 id="RegBorder"> One more step. Please enter the verification code which was sent to you </h1>
-
+<h1 id="RegBorder"> One more step. Please enter the verification code which was sent to you.
+    <br><br>
     <form   action="/regForCodeServlet" method="post">
-        <label><input id="tb1" type="text" name="code"><input type="submit"></label>
-    </form>
+        <label><input id="tb1" type="text" name="code"><br><br><input type="submit"></label>
+    </form></h1>
 </html>

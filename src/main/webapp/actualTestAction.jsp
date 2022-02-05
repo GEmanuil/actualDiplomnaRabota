@@ -1,5 +1,5 @@
 <%@ page import="johnatanasov.diplomawork.SQLJavaClass" %>
-<%@ page contentType="text/html;charset=WINDOWS-1251" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.ArrayList" %>
 <html>
 <head>

@@ -10,10 +10,11 @@ import java.util.Enumeration;
 public class testAction2 extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("WINDOWS-1251");
+        request.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession();
         SQLJavaClass sqlJavaClass = new SQLJavaClass();
         String answerFromTextArea = request.getParameter("answerTATA");
+        System.out.println("String on bg?: " + answerFromTextArea);
         String answerFromCheckBox = request.getParameter("checkBox");
         String email = (String) session.getAttribute("email");
         int idForAskedQuestion = (int) session.getAttribute("idToSet");

@@ -18,7 +18,7 @@ public class addContentServlet extends HttpServlet {
         String code = random.generateString();
         SQLJavaClass k = new SQLJavaClass();
         k.insertContent(a, b,session, code);
-        getServletContext().getRequestDispatcher("/readyToViewContent.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/relookMain.jsp").forward(request, response);
 
     }
 }
