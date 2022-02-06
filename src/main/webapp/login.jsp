@@ -6,9 +6,13 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=WINDOWS-1251" language="java" %>
+<html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="login.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400&display=swap" rel="stylesheet">
     <title>My Relook</title>
 
 </head>
@@ -16,8 +20,8 @@
     <%
         response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
         %>
-</body>
-<html>
+
+
 <h1 id="mainTxt" draggable="true">
     Relook
 </h1>
@@ -37,4 +41,5 @@
         <input class="Register S" type="submit" value="Login"><br>
     </form>
     <p><a href="forgotenPassword1.jsp">Click here, if you forgot your password!!!</a></p>
+</body>
 </html>

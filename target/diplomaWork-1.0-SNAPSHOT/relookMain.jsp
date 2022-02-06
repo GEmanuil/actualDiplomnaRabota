@@ -1,30 +1,25 @@
 <%@ page import="johnatanasov.diplomawork.SQLJavaClass" %>
 <%@ page import="java.util.HashMap" %>
 <%@ page import="java.util.Set" %>
-<%@ page import="java.util.Iterator" %><%--
-  Created by IntelliJ IDEA.
-  User: em4o_
-  Date: 14.12.2021 ã.
-  Time: 18:38
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="java.util.Iterator" %>
 <%@ page contentType="text/html;charset=WINDOWS-1251" language="java" %>
-
+<html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/relookMain.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400&display=swap" rel="stylesheet">
     <title>My Relook</title>
 
 </head>
+
+
 <body>
-    <%
-        response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-        if(session.getAttribute("email")==null && session.getAttribute("password")==null){
-            response.sendRedirect("login.jsp");
-        }
-    %>
-</body>
-<html>
+<div id="divMain">
+
+
+
 <h1 id="mainTxt" draggable="true">
     Relook
 </h1>
@@ -51,4 +46,21 @@
     %>
 </p>
 
+</div>
+<div class="main-menu">
+    <ul>
+        <section class="home">
+            <li class="menu-item"><i class="fa fa-home"></i>Home</li>
+            <li class="menu-item"><i class="fa fa-bell"></i>Notifications</li>
+            <li class="menu-item"><i class="fa fa-paper-plane"></i>Messages</li>
+        </section>
+    </ul>
+</div>
+<%
+    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+    if(session.getAttribute("email")==null && session.getAttribute("password")==null){
+        response.sendRedirect("login.jsp");
+    }
+%>
+</body>
 </html>
