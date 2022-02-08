@@ -47,14 +47,14 @@ System.out.println("someone just clicked !!!!");
         <input class="Register P B" type="password" id="password" name="password" placeholder="Password" required><br><br>
 
         <label class="Register RP" for="repeatPassword"></label>
-        <input class="Register RP B" type="password" id="repeatPassword" name="repeatPassword" placeholder="Repeat Password" required><br><br>
+        <input class="Register RP B" type="password" id="repeatPassword" name="repeatPassword" placeholder="Repeat Password" required><br>
+        <hr>
+        <p id="RegisterAs">Register as:</p>
 
         <input checked class="CheckBox" type="radio" id="checkbox" name="checkbox" value="student">
-        <label for="checkbox">You are a student</label> <br>
-
-        <input class="CheckBox2" type="radio" id="checkbox2" name="checkbox" value="teacher">
-        <label for="checkbox2">You are a teacher</label> <br>
-
+        <label class="CheckBox" for="checkbox">student</label>
+        <input class="CheckBox" type="radio" id="checkbox2" name="checkbox" value="teacher">
+        <label class="CheckBox" for="checkbox2">teacher</label> <br><br>
         <input class="Register S" type="submit" value="Register"><br>
    </form>
 </h1>
@@ -62,40 +62,35 @@ System.out.println("someone just clicked !!!!");
     <div class="container">
         <div class="row">
             <div class="footer-col">
-                <h4>company</h4>
+                <h4>Development</h4>
                 <ul>
-                    <li><a href="#">about us</a></li>
-                    <li><a href="#">our services</a></li>
-                    <li><a href="#">privacy policy</a></li>
-                    <li><a href="#">affiliate program</a></li>
+                    <li><a href="#">about</a></li>
+                    <li><a href="#">functionality</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>get help</h4>
                 <ul>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">shipping</a></li>
-                    <li><a href="#">returns</a></li>
-                    <li><a href="#">order status</a></li>
-                    <li><a href="#">payment options</a></li>
+                    <li><a href="https://mail.google.com/">Gmail</a></li>
+                    <li><a href="https://discord.com/">Discord</a></li>
                 </ul>
             </div>
+<%--            <div class="footer-col">--%>
+<%--                <h4>online shop</h4>--%>
+<%--                <ul>--%>
+<%--                    <li><a href="#">watch</a></li>--%>
+<%--                    <li><a href="#">bag</a></li>--%>
+<%--                    <li><a href="#">shoes</a></li>--%>
+<%--                    <li><a href="#">dress</a></li>--%>
+<%--                </ul>--%>
+<%--            </div>--%>
             <div class="footer-col">
-                <h4>online shop</h4>
-                <ul>
-                    <li><a href="#">watch</a></li>
-                    <li><a href="#">bag</a></li>
-                    <li><a href="#">shoes</a></li>
-                    <li><a href="#">dress</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>follow us</h4>
+                <h4>follow</h4>
                 <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
         </div>

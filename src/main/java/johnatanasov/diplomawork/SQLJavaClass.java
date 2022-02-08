@@ -1115,7 +1115,41 @@ public class SQLJavaClass {
         else{
             cheki = true;
         }
-        System.out.println("Made test? : " + cheki);
         return cheki;
     }
+    public void deleteContent(int id){
+        loadDriver(dbDriver);
+        Connection con = getConnection();
+        PreparedStatement ps;
+        String sql = "delete from answersInfo where fkeyContentId = ?;";
+        try{
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ps.executeUpdate();
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+
+        String sql2 = "delete from tests where ford = ?;";
+        try{
+            ps = con.prepareStatement(sql2);
+            ps.setInt(1, id);
+            ps.executeUpdate();
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+
+        String sql3 = "delete from content where id = ?;";
+        try{
+            ps = con.prepareStatement(sql3);
+            ps.setInt(1, id);
+            ps.executeUpdate();
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
 }

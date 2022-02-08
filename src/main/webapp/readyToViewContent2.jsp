@@ -14,16 +14,34 @@
 <%@ page import="java.util.HashMap" %>
 <%@ page import="java.util.Set" %>
 <%@ page import="java.util.Iterator" %>
+<html>
 <head>
     <link rel="stylesheet" href="/addingContent.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400&display=swap" rel="stylesheet">
     <title>My Relook</title>
 
 </head>
+
+
+<script type="text/javascript">
+    function preback() {window.history.forward();}
+    setTimeout("preback()", 0);
+    window.onunload = function () {null};
+</script>
 <body>
 
-</body>
-<html>
+<div class="main-menu">
+    <ul>
+        <section class="home">
+            <li class="menu-item" onclick="location.href='relookMain.jsp'"><i class="fa fa-home"></i>Home</li>
+            <li class="menu-item" onclick="location.href='logout.jsp'" ><i class="fa fa-sign-out"></i>Log Out</li>
+        </section>
+    </ul>
+</div>
+<div class="mainDiv">
 <h1 id="mainTxt" draggable="true">
     Relook
 </h1>
@@ -59,6 +77,53 @@
     if(Objects.equals(st, "teacher")){
 
 %>
+<style>
+    #overlay {
+        position: fixed;
+        display: none;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.5);
+        z-index: 2;
+        cursor: pointer;
+    }
+
+</style>
+
+<div id="overlay" onclick="off()">
+
+    <div class="form-popup" id="myForm">
+        <div class="form-container">
+            <h1>Are you sure you want to delete this content!!!</h1>
+
+          <a href="${pageContext.request.contextPath}/deleteContentServlet"><button type="submit" class="btn" >Yes</button></a>
+            <button type="button" class="btn cancel" onclick="off()"> Close</button>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+<script>
+    function on() {
+        document.getElementById("overlay").style.display = "block";
+        document.getElementById("myForm").style.display = "block";
+    }
+
+    function off() {
+        document.getElementById("overlay").style.display = "none";
+        document.getElementById("myForm").style.display = "none";
+    }
+</script>
+
+
+
 
     <%
         if(sqlJavaClass.checkForHasTest(session)){
@@ -68,15 +133,19 @@
         <form draggable="true" action="makingTest.jsp">
         <input type="submit" id="contentTest" name="contentTest" value="Edit test">
         </form>
+        <input type="submit" class="deleteContent" name="deleteContent" value="Delete" onclick="on()">
         <p>People who made the test: </p>
     <% }
+
+
+
 
     else{
     %>
         <form draggable="true" action="makingTest.jsp">
             <input type="submit" id="contentTest2" name="contentTest" value="Create a test">
         </form>
-
+        <input type="submit" class="deleteContent" name="deleteContent" value="Delete" onclick="on()">
         <% }
             HashMap<Integer, String> idNamesOftestMakers = sqlJavaClass.giveNamesOfTestMakers(session);
 
@@ -108,5 +177,6 @@ else if (Objects.equals(st, "student")){
   }
 }
 %>
-
+    </div>
+</body>
 </html>

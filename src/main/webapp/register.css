@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import 'https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300';
 body {
     background-color: rgb(40, 43, 44);
     font-family: 'Fira Sans', sans-serif;
@@ -51,8 +52,7 @@ body {
         background-color: rgb(251, 252, 236);
         margin: auto;
         margin-top: 100px;
-        max-width: 550px;
-        padding-bottom: 20px;
+        max-width: 460px;
     }
     .MT{
         text-align: center;
@@ -68,7 +68,42 @@ body {
    #tb1{
        text-align: center;
    }
+.S{
+    font-size: 20px;
+    color: black;
+    background-color: rgb(251, 252, 236);
+    border: 2px solid black;
+    border-radius: 10px;
+    font-family: 'Fira Sans', sans-serif;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)
+}
+.S:hover{
+    transform: translateY(-2px);
+    transition-delay: 50ms;
+}
 
+
+.S:active {
+    color: white;
+    background-color: black;
+    border: 2px solid white;
+    border-radius: 10px;
+    font-family: 'Fira Sans', sans-serif;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    transform: translateY(2px);
+    transition-delay: 50ms;
+}
+
+
+
+.CheckBox{
+    font-size: 20px;
+}
+#RegisterAs{
+    font-size: 25px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
 .container{
     line-height: 1.5;
     max-width: 1170px;

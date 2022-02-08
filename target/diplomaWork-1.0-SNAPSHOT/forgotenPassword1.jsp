@@ -27,7 +27,7 @@
     <div style="padding-bottom:2000px"></div>
 </ul>
 <h1 id="RegBorder">
-    <p class="MT">Forgot your password? Enter your email.</p>
+    <p class="MT">Enter your email.</p>
     <form  action="/forgottenPassServlet1" method="post">
         <label class="Register E" for="email">Email address:</label><br>
         <input class="Register E B" type="email" id="email" name="email" required><br><br>

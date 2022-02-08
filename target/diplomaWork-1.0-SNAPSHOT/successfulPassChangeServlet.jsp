@@ -7,7 +7,13 @@
 --%>
 <%@ page contentType="text/html;charset=WINDOWS-1251" language="java" %>
 <head>
-    <link rel="stylesheet" href="register.css">
+    <link rel="stylesheet" href="forgotenPassword1.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
     <title>My Relook</title>
 
@@ -26,7 +32,4 @@
 </ul>
 <h1 id="RegBorder"> You changed your password successfully. Now feel free to log in to your account.</h1>
 
-<form   action="/login.jsp" method="post">
-    <label><input type="button"></label>
-</form>
 </html>
