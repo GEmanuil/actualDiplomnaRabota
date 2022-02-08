@@ -66,12 +66,14 @@
     %>  <%= title %> </p>
 
 </h1>
-<h2 id="mainTxext">
+<div class="mainTextDiv">
+<pre id="mainText">
     <%
         String text = session.getAttribute("text").toString();
     %>
     <%= text %>
-</h2><hr/>
+</pre></div>
+    <hr/>
 <%
 
     if(Objects.equals(st, "teacher")){

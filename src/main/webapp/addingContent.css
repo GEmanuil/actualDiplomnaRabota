@@ -24,8 +24,35 @@ body {
     height:300px;
     width:700px;
 }
-#mainTxext{
-    text-align: center;
+.mainTextDiv{
+
+}
+
+.mainTextDiv {
+    width: 1100px;
+    margin: auto;
+    position: relative;
+    background: white;
+    border-radius: 0% 0% 0% 0% / 0% 0% 0% 0% ;
+    color: white;
+    box-shadow: 20px 20px rgba(0,0,0,.15);
+    transition: all .4s ease;
+}
+.mainTextDiv:hover {
+    border-radius: 0% 0% 5% 5% / 0% 0% 2% 2% ;
+    box-shadow: 10px 10px rgba(0,0,0,.25);
+}
+#mainText{
+    font-size: 15px;
+    margin-left: 50px;
+    color: #100e0e;
+    width: 1000px;
+    white-space: -moz-pre-wrap; /* Mozilla, supported since 1999 */
+    white-space: -o-pre-wrap; /* Opera */
+    white-space: pre-wrap; /* CSS3 - Text module (Candidate Recommendation) http://www.w3.org/TR/css3-text/#white-space */
+    word-wrap: break-word; /* IE 5.5+ */
+
+
 }
 #editButton{
     width: 150px;
