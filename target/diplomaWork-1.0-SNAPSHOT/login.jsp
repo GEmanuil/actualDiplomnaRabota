@@ -37,10 +37,14 @@
 <h1 id="RegBorder">
     <p class="MT">Login to Relook</p>
     <form  action="/logServe" method="post">
-        <label class="Register E" for="email">Email address:</label><br>
-        <input class="Register E B" type="email" id="email" name="email" required><br><br>
-        <label class="Register P" for="password">Password:</label><br>
-        <input class="Register P B" type="password" id="password" name="password" required><br><br>
+        <label class="Register E" for="email"></label>
+        <div class="ea">
+            <input class="ea" type="email" id="email" name="email" placeholder="Email address" required>
+        </div><br>
+        <label class="Register P" for="password"></label>
+        <div class="pa">
+            <input class="pa" type="password" id="password" name="password" placeholder="Password" required>
+        </div><br>
         <hr>
         <input class="Register S" type="submit" value="Login"><br>
     </form>

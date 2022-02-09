@@ -294,6 +294,8 @@ body {
     opacity: 1;
 }
 .deleteContent{
+    position: relative;
+    bottom: 50px;
     width: 150px;
     font-family:cursive;
     font-size: 20px;
@@ -303,10 +305,7 @@ body {
     border-radius: 5px;
     margin-right: 10px;
 
-
     float: right;
-
-
 
     justify-content: center;
     align-items: center;
@@ -316,6 +315,7 @@ body {
 
 }
 .main-menu{
+    z-index: 10;
     font-family: 'Fira Sans', sans-serif;
     color: white;
     background-color: #5a5a50;

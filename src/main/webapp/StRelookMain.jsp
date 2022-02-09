@@ -29,7 +29,7 @@
     Relook
 </h1>
 <ul id="lr" class="RL">
-    <li class="RL M H"><a href="relookMain.jsp">Home</a></li>
+    <li class="RL M H"><a href="StRelookMain.jsp">Home</a></li>
     <li class="RL M L"><a href="logout.jsp">Log Out</a></li>
     <div style="padding-bottom:2000px"></div>
 </ul>

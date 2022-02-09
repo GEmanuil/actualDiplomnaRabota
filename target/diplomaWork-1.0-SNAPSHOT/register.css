@@ -9,14 +9,14 @@ body {
   #mainTxt{
     width: 150px;
     margin-left: 20px;
-    font-family:cursive; 
+    font-family:cursive;
     font-size: 35px;
     color: rgb(0, 0, 0);
     text-align: center;
     background-color: rgb(251, 252, 216);
     border-radius: 5px;
     }
-   
+
   .RL{
     /*To finish after*/
     list-style-type: none;
@@ -30,20 +30,20 @@ body {
     display: block;
     color: white;
     /* text-align: center; */
-    padding: 10px 10px; 
+    padding: 10px 10px;
     text-decoration: none;
   }
     .RL .M:hover:not(.RL .R){
      background-color: rgb(253, 208, 7);
-  } 
+  }
   .RL .R{
     background-color: rgb(253, 208, 7);
-  }  
+  }
   #lr{
     float:right;
     margin-top: -75px;
     max-height: 38px;
-    } 
+    }
     #RegBorder{
         text-align: center;
         border-style:solid;
@@ -56,7 +56,7 @@ body {
     }
     .MT{
         text-align: center;
-        font-family:'Courier New', Courier, monospace; 
+        font-family:'Courier New', Courier, monospace;
         font-size: 35px;
         margin-top: 40px;
         /* text-shadow: 1px 1px red; */
@@ -234,5 +234,155 @@ ul{
     transparent)
 }
 
+.fa {
+    position: relative;
+    margin: auto;
+    width: 100%;
+    max-width: 280px;
+    border-radius: 3px;
+    overflow: hidden;
+}
+.fa input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    border: 0;
+    font-family: inherit;
+    padding: 2px 12px 0 12px;
+    height: 45px;
+    font-size: 15px;
+    font-weight: 400;
+    background: rgba(0, 0, 0, 0.02);
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+    color: #000;
+    transition: all 0.15s ease;
+}
+.fa:hover {
+    background: rgba(0, 0, 0, 0.04);
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
 
-  /* This is a comment! */
+
+.la {
+    position: relative;
+    margin: auto;
+    width: 100%;
+    max-width: 280px;
+    border-radius: 3px;
+    overflow: hidden;
+}
+.la input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    border: 0;
+    font-family: inherit;
+    padding: 2px 12px 0 12px;
+    height: 45px;
+    font-size: 15px;
+    font-weight: 400;
+    background: rgba(0, 0, 0, 0.02);
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+    color: #000;
+    transition: all 0.15s ease;
+}
+.la:hover {
+    background: rgba(0, 0, 0, 0.04);
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+.ea {
+    position: relative;
+    margin: auto;
+    width: 100%;
+    max-width: 280px;
+    border-radius: 3px;
+    overflow: hidden;
+}
+.ea input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    border: 0;
+    font-family: inherit;
+    padding: 2px 12px 0 12px;
+    height: 45px;
+    font-size: 15px;
+    font-weight: 400;
+    background: rgba(0, 0, 0, 0.02);
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+    color: #000;
+    transition: all 0.15s ease;
+}
+.ea:hover {
+    background: rgba(0, 0, 0, 0.04);
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+
+.pa {
+    position: relative;
+    margin: auto;
+    width: 100%;
+    max-width: 280px;
+    border-radius: 3px;
+    overflow: hidden;
+}
+.pa input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    border: 0;
+    font-family: inherit;
+    padding: 2px 12px 0 12px;
+    height: 45px;
+    font-size: 15px;
+    font-weight: 400;
+    background: rgba(0, 0, 0, 0.02);
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+    color: #000;
+    transition: all 0.15s ease;
+}
+.pa:hover {
+    background: rgba(0, 0, 0, 0.04);
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+
+.rpa {
+    position: relative;
+    margin: auto;
+    width: 100%;
+    max-width: 280px;
+    border-radius: 3px;
+    overflow: hidden;
+}
+.rpa input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    border: 0;
+    font-family: inherit;
+    padding: 2px 12px 0 12px;
+    height: 45px;
+    font-size: 15px;
+    font-weight: 400;
+    background: rgba(0, 0, 0, 0.02);
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+    color: #000;
+    transition: all 0.15s ease;
+}
+.rpa:hover {
+    background: rgba(0, 0, 0, 0.04);
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}

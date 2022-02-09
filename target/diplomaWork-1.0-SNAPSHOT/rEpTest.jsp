@@ -34,30 +34,40 @@
 <%
 System.out.println("someone just clicked !!!!");
 %>
-<h1 id="RegBorder">
-    <p class="MT">Start using Relook</p>
-    <form  action="/regServ" method="post">
-        <label class="Register FN" for="firstname"></label>
-        <input class="Register FN B" type="text" id="firstname" name="firstname" placeholder="First name" required><br><br>
-        <label class="Register LN" for="lastname"></label>
-        <input class="Register LN B" type="text" id="lastname" name="lastname" placeholder="Last name" required><br><br>
-        <label class="Register E" for="email"></label>
-        <input class="Register E B" type="email" id="email" name="email" placeholder="Email address" required><br><br>
-        <label class="Register P" for="password"></label>
-        <input class="Register P B" type="password" id="password" name="password" placeholder="Password" required><br><br>
+<div id="RegBorder">
+    <h1>
+        <p class="MT">Start using Relook</p>
+        <form action="/regServ" method="post">
+            <label class="Register FN" for="firstname"></label>
+            <div class="fa">
+                <input class="fa" type="text" id="firstname" name="firstname" placeholder="First name" required>
+            </div>
+            <label class="Register LN" for="lastname"></label><br><br>
+            <div class="la">
+                <input class="la" type="text" id="lastname" name="lastname" placeholder="Last name" required>
+            </div>
+            <label class="Register E" for="email"></label><br>
+            <div class="ea">
+                <input class="ea" type="email" id="email" name="email" placeholder="Email address" required>
+            </div>
+            <label class="Register P" for="password"></label><br>
+            <div class="pa">
+                <input class="pa" type="password" id="password" name="password" placeholder="Password" required>
+            </div>
+            <label class="Register RP" for="repeatPassword"></label><br>
+            <div class="rpa">
+                <input class="rpa" type="password" id="repeatPassword" name="repeatPassword" placeholder="Repeat Password" required>
+            </div><br><hr>
+            <p id="RegisterAs">Register as:</p>
 
-        <label class="Register RP" for="repeatPassword"></label>
-        <input class="Register RP B" type="password" id="repeatPassword" name="repeatPassword" placeholder="Repeat Password" required><br>
-        <hr>
-        <p id="RegisterAs">Register as:</p>
-
-        <input checked class="CheckBox" type="radio" id="checkbox" name="checkbox" value="student">
-        <label class="CheckBox" for="checkbox">student</label>
-        <input class="CheckBox" type="radio" id="checkbox2" name="checkbox" value="teacher">
-        <label class="CheckBox" for="checkbox2">teacher</label> <br><br>
-        <input class="Register S" type="submit" value="Register"><br>
-   </form>
-</h1>
+            <input checked class="CheckBox" type="radio" id="checkbox" name="checkbox" value="student">
+            <label class="CheckBox" for="checkbox">student</label>
+            <input class="CheckBox" type="radio" id="checkbox2" name="checkbox" value="teacher">
+            <label class="CheckBox" for="checkbox2">teacher</label> <br><br>
+            <input class="Register S" type="submit" value="Register"><br>
+        </form>
+    </h1>
+</div>
 <footer class="footer">
     <div class="container">
         <div class="row">

@@ -39,6 +39,7 @@
     <%
         SQLJavaClass sqlJavaClass = new SQLJavaClass();
         HashMap<Integer, String> title = sqlJavaClass.giveContentTitle(session);
+        session.setAttribute("titles", title);
         String a;
             Iterator<Integer> keySet = title.keySet().iterator();
             while(keySet.hasNext()){
@@ -56,6 +57,19 @@
     <ul>
         <section class="home">
             <li class="menu-item" onclick="location.href='relookMain.jsp'"><i class="fa fa-home"></i>Home</li>
+            <%
+                HashMap<Integer, String> title2 = (HashMap<Integer, String>) session.getAttribute("titles");
+                Iterator<Integer> keySet2 = title2.keySet().iterator();
+                String tit;
+                while(keySet2.hasNext()){
+                    int key1 = keySet2.next();
+                    tit = title2.get(key1);
+            %>
+                <li class="menu-item" onclick="location.href='readyToViewContentServlet?id=<%=key1%>'"><i class="fa fa-minus"></i><%=tit%></li>
+            <%
+                }
+            %>
+
             <li class="menu-item" onclick="location.href='logout.jsp'" ><i class="fa fa-sign-out"></i>Log Out</li>
         </section>
     </ul>
