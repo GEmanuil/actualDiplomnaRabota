@@ -52,6 +52,9 @@
     overflow: hidden;
     cursor: pointer;
 }
+#addButton:hover {
+    background-color: #655F5FFF;
+}
 #addButton:after {
     content: "";
     background: #f1f1f1;
@@ -95,6 +98,11 @@
     overflow: hidden;
     cursor: pointer;
 }
+#addButton1:hover{
+    background-color: #655F5FFF;
+    /*box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9,*/
+    /*7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001;*/
+}
 #addButton1:after {
     content: "";
     background: #f1f1f1;
@@ -133,6 +141,7 @@
 /*}*/
 body {
     background-color: rgb(40, 43, 44);
+    /*background-image: url("https://studentspace.org.uk/assets/images/student-space_illustrations_studying.png");*/
     font-family: 'Fira Sans', sans-serif;
     color: white;
 }

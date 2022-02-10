@@ -1151,5 +1151,69 @@ public class SQLJavaClass {
             e.printStackTrace();
         }
     }
+    public String[] givePesrsonFirstLastName(HttpSession session){
+        String email = (String) session.getAttribute("email");
+        String[] result = new String[2];
+        loadDriver(dbDriver);
+        Connection con = getConnection();;
+        ResultSet resultSet;
+        PreparedStatement ps;
+        String sql = "select Firstname, Lastname from regtb where email=?";
+        try{
+            ps = con.prepareStatement(sql);
+            ps.setString(1, email);
+            resultSet = ps.executeQuery();
+            if(resultSet.next()){
+                result[0] = resultSet.getString("Firstname");
+                result[1] = resultSet.getString("Lastname");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        System.out.println("String arr: " + result[0] + result[1]);
+        return result;
+    }
+    public void deleteQuestion(int id){
+        loadDriver(dbDriver);
+        Connection con = getConnection();
+        PreparedStatement ps;
 
+        String sql0 = "SET foreign_key_checks = 0";
+        try{
+            ps = con.prepareStatement(sql0);
+            ps.executeUpdate();
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+
+        String sql = "delete from answersInfo where fkeyTests = ?;";
+        try{
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ps.executeUpdate();
+            System.out.println("Successfully deleted!!!");
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+
+        String sql2 = "delete from tests where id = ?;";
+        try{
+            ps = con.prepareStatement(sql2);
+            ps.setInt(1, id);
+            ps.executeUpdate();
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+        String sql3 = "SET foreign_key_checks = 1";
+        try{
+            ps = con.prepareStatement(sql3);
+            ps.executeUpdate();
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
 }

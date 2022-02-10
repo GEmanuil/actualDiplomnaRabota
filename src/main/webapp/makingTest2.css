@@ -24,9 +24,6 @@ body {
     height:300px;
     width:700px;
 }
-.mainTextDiv{
-
-}
 
 .mainTextDiv {
     width: 1100px;
@@ -94,17 +91,29 @@ body {
     text-decoration: none;
     overflow: hidden;
     cursor: pointer;
-    transition: all 0.3s ease;
 }
-#addButton:hover{
-    background-color: #655F5FFF;
-    box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9,
-    7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001;
+#addButton:after {
+    content: "";
+    background: #f1f1f1;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px !important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+
+#addButton:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
 }
 
 
 #questionButton{
-    max-width: 1000px;
     background-color: #333333;
     margin-left: auto;
     position: relative;
@@ -112,17 +121,12 @@ body {
     font-size: 28px;
     color: #FFFFFF;
     padding: 20px;
+    width: 1000px;
     text-align: center;
     transition-duration: 0.4s;
     text-decoration: none;
     overflow: hidden;
     cursor: pointer;
-    transition: all 0.3s ease;
-}
-#questionButton:hover{
-    background-color: #655F5FFF;
-    box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9,
-    7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001;
 }
 #addButton2{
     margin-left: auto;
@@ -138,12 +142,25 @@ body {
     text-decoration: none;
     overflow: hidden;
     cursor: pointer;
-    transition: all 0.3s ease;
 }
-#addButton2:hover{
-    background-color: #655F5FFF;
-    box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9,
-    7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001;
+#addButton2:after {
+    content: "";
+    background: #f1f1f1;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px !important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+
+#addButton2:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
 }
 #contentTest2{
     width: 150px;
@@ -350,27 +367,6 @@ section.home{
 ul{
     list-style-type: none;
     margin-left: -5px;
-}
-#deleteButton{
-    border-radius: 5px;
-    background-color: #333333;
-    margin-left: auto;
-    position: relative;
-    border: none;
-    font-size: 28px;
-    color: #FFFFFF;
-    padding: 20px;
-    text-align: center;
-    transition-duration: 0.4s;
-    text-decoration: none;
-    overflow: hidden;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-#deleteButton:hover{
-    background-color: #e84444;
-    box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9,
-    7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001;
 }
 /* This is a comment! */
 

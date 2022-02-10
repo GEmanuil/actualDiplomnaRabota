@@ -22,11 +22,36 @@
     <title>My Relook</title>
 
 </head>
+<script>
+    function my_onkeydown_handler( event ) {
+        switch (event.keyCode) {
+            case 116 : // 'F5'
+                event.preventDefault();
+                event.keyCode = 0;
+                window.status = "F5 disabled";
+                break;
+        }
+    }
+    document.addEventListener("keydown", my_onkeydown_handler);
+</script>
 <body>
 <div class="main-menu">
     <ul>
         <section class="home">
             <li class="menu-item" onclick="location.href='relookMain.jsp'"><i class="fa fa-home"></i>Home</li>
+            <li class="menu-item" onclick="location.href='profile.jsp'" ><i class="fa fa-user" ></i>Profile</li>
+            <%
+                HashMap<Integer, String> title2 = (HashMap<Integer, String>) session.getAttribute("titles");
+                Iterator<Integer> keySet2 = title2.keySet().iterator();
+                String tit;
+                while(keySet2.hasNext()){
+                    int key1 = keySet2.next();
+                    tit = title2.get(key1);
+            %>
+            <li class="menu-item" onclick="location.href='readyToViewContentServlet?id=<%=key1%>'"><i class="fa fa-minus"></i><%=tit%></li>
+            <%
+                }
+            %>
             <li class="menu-item" onclick="location.href='logout.jsp'" ><i class="fa fa-sign-out"></i>Log Out</li>
         </section>
     </ul>
@@ -52,7 +77,9 @@
                     int key = keySet.next();
                     a = title.get(key);
             %>
-            <a href="ServForQuestionEdit?idForQuestion=<%=key%>"><button type="button" id="questionButton" name="addContent"><%=a%></button></a><br><br>
+            <a href="ServForQuestionDelete?idForQuestion=<%=key%>"><button class="fa fa-trash-o" type="button" id="deleteButton" name="delteButton"></button></a>
+            <a href="ServForQuestionEdit?idForQuestion=<%=key%>"><button type="button" id="questionButton" name="addContent"><%=a%></button></a>
+                <br><br>
             <%
                 }
             %>

@@ -32,21 +32,40 @@
     window.onunload = function () {null};
 </script>
 <body>
+<%
+    String st = (String) session.getAttribute("st");
+    if(Objects.equals(st, "teacher")){
 
+%>
 <div class="main-menu">
     <ul>
         <section class="home">
             <li class="menu-item" onclick="location.href='relookMain.jsp'"><i class="fa fa-home"></i>Home</li>
+            <li class="menu-item" onclick="location.href='profile.jsp'" ><i class="fa fa-user" ></i>Profile</li>
+            <%
+                HashMap<Integer, String> title2 = (HashMap<Integer, String>) session.getAttribute("titles");
+                Iterator<Integer> keySet2 = title2.keySet().iterator();
+                String tit;
+                while(keySet2.hasNext()){
+                    int key1 = keySet2.next();
+                    tit = title2.get(key1);
+            %>
+            <li class="menu-item" onclick="location.href='readyToViewContentServlet?id=<%=key1%>'"><i class="fa fa-minus"></i><%=tit%></li>
+            <%
+                }
+            %>
             <li class="menu-item" onclick="location.href='logout.jsp'" ><i class="fa fa-sign-out"></i>Log Out</li>
         </section>
     </ul>
 </div>
+<%
+    }
+%>
 <div class="mainDiv">
 <h1 id="mainTxt" draggable="true">
     Relook
 </h1>
 <%
-    String st = (String) session.getAttribute("st");
     String code = (String) session.getAttribute("code");
 
     if(Objects.equals(st, "teacher")){%>

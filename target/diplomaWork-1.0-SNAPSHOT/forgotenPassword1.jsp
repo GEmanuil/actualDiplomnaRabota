@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=WINDOWS-1251" language="java" %>
+<html>
 <head>
     <link rel="stylesheet" href="forgotenPassword1.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
@@ -16,8 +17,8 @@
 <%
     response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 %>
-</body>
-<html>
+
+
 <h1 id="mainTxt" draggable="true">
     Relook
 </h1>
@@ -34,4 +35,6 @@
 
         <input class="Register S" type="submit" value="Submit"><br>
     </form>
+</h1>
+</body>
 </html>

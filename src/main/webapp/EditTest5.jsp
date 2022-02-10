@@ -8,6 +8,8 @@
 <%@ page contentType="text/html;charset=WINDOWS-1251" language="java" %>
 <%@ page import="johnatanasov.diplomawork.*"  %>
 <%@ page import="mail.*"  %>
+<%@ page import="java.util.HashMap" %>
+<%@ page import="java.util.Iterator" %>
 <html>
 <head>
     <link rel="stylesheet" href="/addingContent.css">
@@ -17,15 +19,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400&display=swap" rel="stylesheet">
     <title>My Relook</title>
 </head>
+<script type="text/javascript">
+    function preback() {window.history.forward();}
+    setTimeout("preback()", 0);
+    window.onunload = function () {null};
+</script>
 <body>
 
 <div class="main-menu">
-    <ul>
-        <section class="home">
-            <li class="menu-item" onclick="location.href='relookMain.jsp'"><i class="fa fa-home"></i>Home</li>
-            <li class="menu-item" onclick="location.href='logout.jsp'" ><i class="fa fa-sign-out"></i>Log Out</li>
-        </section>
-    </ul>
+    <div class="main-menu">
+        <ul>
+            <section class="home">
+                <li class="menu-item" onclick="location.href='relookMain.jsp'"><i class="fa fa-home"></i>Home</li>
+                <li class="menu-item" onclick="location.href='profile.jsp'" ><i class="fa fa-user" ></i>Profile</li>
+                <%
+                    HashMap<Integer, String> title2 = (HashMap<Integer, String>) session.getAttribute("titles");
+                    Iterator<Integer> keySet2 = title2.keySet().iterator();
+                    String tit;
+                    while(keySet2.hasNext()){
+                        int key1 = keySet2.next();
+                        tit = title2.get(key1);
+                %>
+                <li class="menu-item" onclick="location.href='readyToViewContentServlet?id=<%=key1%>'"><i class="fa fa-minus"></i><%=tit%></li>
+                <%
+                    }
+                %>
+                <li class="menu-item" onclick="location.href='logout.jsp'" ><i class="fa fa-sign-out"></i>Log Out</li>
+            </section>
+        </ul>
+    </div>
 </div>
 <div class="mainDiv">
 <h1 id="mainTxt" draggable="true">

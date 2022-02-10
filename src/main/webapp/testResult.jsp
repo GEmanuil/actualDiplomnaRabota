@@ -16,83 +16,80 @@
     <title>My Relook</title>
 
 </head>
-<body>
+    <body>
 
-</body>
 
-<h1 id="mainTxt" draggable="true">
-    Relook
-</h1>
 
-<ul id="lr" class="RL">
-</ul>
+    <h1 id="mainTxt" draggable="true">
+        Relook
+    </h1>
 
-<h1 id="makingTestText">
+    <ul id="lr" class="RL">
+    </ul>
 
-<%
-    SQLJavaClass sqlJavaClass = new SQLJavaClass();
-    String code = (String) session.getAttribute("code");
-    ArrayList<Integer> questionIDS = sqlJavaClass.giveQuestionsIDs(code);
+    <h1 id="makingTestText">
 
-    for(int i = 0; i < questionIDS.size(); i++){
+    <%
+        SQLJavaClass sqlJavaClass = new SQLJavaClass();
+        String code = (String) session.getAttribute("code");
+        ArrayList<Integer> questionIDS = sqlJavaClass.giveQuestionsIDs(code);
 
-        int questioniD = questionIDS.get(i);
-        String actualQuestion = sqlJavaClass.giveTestQuestion(questioniD);
-        String[] answers = sqlJavaClass.giveTestAnswers(questioniD);
-        String answerPlaced = sqlJavaClass.giveAnsweredAnswer(questioniD, session);
-    %>
+        for(int i = 0; i < questionIDS.size(); i++){
 
-        Question: <%= actualQuestion%> <br>
-    <% if(answers[3] == null) { %>
-        Correct answer: <%= answers[0]%> <br>
+            int questioniD = questionIDS.get(i);
+            String actualQuestion = sqlJavaClass.giveTestQuestion(questioniD);
+            String[] answers = sqlJavaClass.giveTestAnswers(questioniD);
+            String answerPlaced = sqlJavaClass.giveAnsweredAnswer(questioniD, session);
+        %>
+
+            Question: <%= actualQuestion%> <br>
+        <% if(answers[3] == null) { %>
+            Correct answer: <%= answers[0]%> <br>
+            Answer placed: <%=answerPlaced%>
+        <br>
+        <% }
+        else{ %>
+        Correct answer: <%
+            for(int j = 0; j < 4; j++){
+                if (answers[j].startsWith("}")) {
+                    String answer = answers[j];
+                    char[] answerArr = answer.toCharArray();
+                    char[] newanswerArr = new char[answerArr.length - 1];
+                    System.arraycopy(answerArr, 1, newanswerArr, 0, newanswerArr.length);
+                    answer = String.valueOf(newanswerArr);
+
+                        if (answerPlaced.startsWith("}")) {
+                            String answer2 = answers[j];
+                            char[] answerArr1 = answer2.toCharArray();
+                            char[] newanswerArr2 = new char[answerArr1.length - 1];
+                            System.arraycopy(answerArr1, 1, newanswerArr2, 0, newanswerArr2.length);
+                            answerPlaced = String.valueOf(newanswerArr2);
+                        }
+
+                    %>
+        <%=answer%> <br>
         Answer placed: <%=answerPlaced%>
-    <br>
-    <% }
-    else{ %>
-    Correct answer: <%
-        for(int j = 0; j < 4; j++){
-            if (answers[j].startsWith("}")) {
-                String answer = answers[j];
-                char[] answerArr = answer.toCharArray();
-                char[] newanswerArr = new char[answerArr.length - 1];
-                System.arraycopy(answerArr, 1, newanswerArr, 0, newanswerArr.length);
-                answer = String.valueOf(newanswerArr);
+        <br>
+        <%
+        %>
 
-                    if (answerPlaced.startsWith("}")) {
-                        String answer2 = answers[j];
-                        char[] answerArr1 = answer2.toCharArray();
-                        char[] newanswerArr2 = new char[answerArr1.length - 1];
-                        System.arraycopy(answerArr1, 1, newanswerArr2, 0, newanswerArr2.length);
-                        answerPlaced = String.valueOf(newanswerArr2);
-                    }
+        <%
+            }
 
-                %>
-    <%=answer%> <br>
-    Answer placed: <%=answerPlaced%>
-    <br>
-    <%
-    %>
+                    %>
+        <%
+        %>
 
-    <%
-        }
+       <%
 
-                %>
-    <%
-    %>
-
-   <%
-
-        }
+            }
 
 
-     } %><br><br>
-    <% }%>
+         } %><br><br>
+        <% }%>
 
 
-    <form  action="/??" method="post">
 
-    </form>
-
-
-</h1>
+    </h1>
+</body>
 </html>

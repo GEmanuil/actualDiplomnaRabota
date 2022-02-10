@@ -57,6 +57,7 @@
     <ul>
         <section class="home">
             <li class="menu-item" onclick="location.href='relookMain.jsp'"><i class="fa fa-home"></i>Home</li>
+            <li class="menu-item" onclick="location.href='profile.jsp'" ><i class="fa fa-user" ></i>Profile</li>
             <%
                 HashMap<Integer, String> title2 = (HashMap<Integer, String>) session.getAttribute("titles");
                 Iterator<Integer> keySet2 = title2.keySet().iterator();
