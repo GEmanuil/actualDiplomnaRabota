@@ -1192,7 +1192,6 @@ public class SQLJavaClass {
             ps = con.prepareStatement(sql);
             ps.setInt(1, id);
             ps.executeUpdate();
-            System.out.println("Successfully deleted!!!");
         }
         catch (SQLException e){
             e.printStackTrace();

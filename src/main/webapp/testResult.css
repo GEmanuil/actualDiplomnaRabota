@@ -444,7 +444,13 @@ ul{
     background: #FFFFFF;
 }
 
-
+.questionAnswerBorder{
+    font-family: cursive;
+    font-size: 25px;
+    border-radius: 5px;
+    border-style: groove;
+    background-color: #e0b69a;
+}
 /* This is a comment! */
 
 

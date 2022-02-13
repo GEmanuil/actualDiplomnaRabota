@@ -51,9 +51,9 @@
 <h1 id="RegBorder">
     <p class="MT">Add your information here </p>
     <form  action="/addContentServlet" method="post">
-        <label class="title" for="title">Title</label><br>
+        <label class="title" for="title"></label><br>
         <textarea class="tTitle" id="title" name="title" placeholder="Title" draggable="true"  required></textarea><br><br>
-        <label class="text" for="text">Text</label><br>
+        <label class="text" for="text"></label><br>
         <textarea class="textB" id="text" name="MainText" placeholder="Text" draggable="false"  required></textarea><br><br>
 
         <input class="add" type="submit" value="ADD CONTENT"><br>

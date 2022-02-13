@@ -15,6 +15,7 @@ body {
 .MT{
     color: rgb(0, 0, 0);
     text-align: center;
+    font-family: cursive
 }
 #RegBorder{
     color: rgb(251, 252, 216);
@@ -371,6 +372,79 @@ ul{
     list-style-type: none;
     margin-left: -5px;
 }
+.tTitle {
+    resize: none;
+    width: 500px;
+    height: 60px;
+    background-color: #dddddd;
+    color: #666666;
+    padding: 1em;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    outline: none;
+    font-family: "Heebo", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.4;
+    transition: all 0.1s;
+}
+.tTitle:hover {
+    cursor: pointer;
+    background-color: #eeeeee;
+}
+
+.tTitle:focus {
+    cursor: text;
+    color: #333333;
+    background-color: white;
+    border-color: #333333;
+}
+.textB {
+    max-width: 1000px;
+    min-width: 1000px;
+    min-height: 550px;
+    background-color: #dddddd;
+    color: #666666;
+    padding: 1em;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    outline: none;
+    font-family: "Heebo", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.4;
+    width: 1000px;
+    height: 100px;
+    transition: all 0.1s;
+}
+.textB:hover {
+    cursor: pointer;
+    background-color: #eeeeee;
+}
+
+.textB:focus {
+    cursor: text;
+    color: #333333;
+    background-color: white;
+    border-color: #333333;
+}
+
+.add {
+    color: white;
+    font-family: fangsong;
+    width: 137px;
+    height: 30px;
+    background: #5a5a50;
+    border-radius: 6px;
+    transition: all .3s cubic-bezier(0.67, 0.17, 0.40, 0.83);
+}
+.add:hover {
+    color: black;
+    cursor: pointer;
+    background: #FFFFFF;
+}
+
+
 /* This is a comment! */
 
 
