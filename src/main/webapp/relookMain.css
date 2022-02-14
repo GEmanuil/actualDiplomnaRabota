@@ -283,4 +283,30 @@ section.home{
     width: 500px;
     text-align: center;
 }
+.submitButt{
+    font-size: 20px;
+    color: black;
+    background-color: rgb(251, 252, 236);
+    border: 2px solid black;
+    border-radius: 10px;
+    font-family: 'Fira Sans', sans-serif;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)
+}
+.submitButt:hover{
+    transform: translateY(-2px);
+    transition-delay: 50ms;
+}
+
+
+.submitButt:active {
+    color: white;
+    background-color: black;
+    border: 2px solid white;
+    border-radius: 10px;
+    font-family: 'Fira Sans', sans-serif;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    transform: translateY(2px);
+    transition-delay: 50ms;
+
+}
 /* This is a comment! */

@@ -47,7 +47,7 @@
 <form  action="${pageContext.request.contextPath}/codeEnterServlet" method="post">
     <label id="codeTyped" for="code"></label><br>
     <input class="tTitle" type="text" id="code" name="code" placeholder="code" required><br><br>
-    <input class="Register S" type="submit" value="Submit"><br>
+    <input class="submitButt" type="submit" value="Submit"><br>
 </form>
 </div>
 </div>

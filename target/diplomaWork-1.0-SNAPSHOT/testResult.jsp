@@ -31,12 +31,17 @@
                     HashMap<Integer, String> title2 = (HashMap<Integer, String>) session.getAttribute("titles");
                     Iterator<Integer> keySet2 = title2.keySet().iterator();
                     String tit;
+                    int counter = 0;
                     while(keySet2.hasNext()){
+                        if(counter >= 11){
+                            break;
+                        }
                         int key1 = keySet2.next();
                         tit = title2.get(key1);
                 %>
                 <li class="menu-item" onclick="location.href='readyToViewContentServlet?id=<%=key1%>'"><i class="fa fa-minus"></i><%=tit%></li>
                 <%
+                        counter++;
                     }
                 %>
                 <li class="menu-item" onclick="location.href='logout.jsp'" ><i class="fa fa-sign-out"></i>Log Out</li>
@@ -69,9 +74,8 @@
         SQLJavaClass sqlJavaClass = new SQLJavaClass();
         String code = (String) session.getAttribute("code");
         ArrayList<Integer> questionIDS = sqlJavaClass.giveQuestionsIDs(code);
-
+        int gradeCounter = 0;
         for(int i = 0; i < questionIDS.size(); i++){
-
             int questioniD = questionIDS.get(i);
             String actualQuestion = sqlJavaClass.giveTestQuestion(questioniD);
             String[] answers = sqlJavaClass.giveTestAnswers(questioniD);
@@ -79,45 +83,62 @@
         %>
         <div class="questionAnswerBorder">
             Question: <%= actualQuestion%> <br>
-        <% if(answers[3] == null) { %>
-            Correct answer: <%= answers[0]%> <br>
-            Answer placed: <%=answerPlaced%>
-        <br>
+        <% if(answers[3] == null) {
+               if(Objects.equals(answerPlaced, answers[0])){
+                gradeCounter++;
+        %>
+            <div class="greenAnswer">
+                Correct answer: <%= answers[0]%> <br>
+                Answer placed: <%=answerPlaced%>
+            </div>
         <% }
-        else{ %>
-        Correct answer: <%
+               else{ %>
+            <div class="redAnswer">
+                Correct answer: <%= answers[0]%> <br>
+                Answer placed: <%=answerPlaced%>
+            </div>
+              <% }
+        }
+        else{
+             String CorrectAnswer = null;
             for(int j = 0; j < 4; j++){
-                if (answers[j].startsWith("}")) {
-                    String answer = answers[j];
-                    char[] answerArr = answer.toCharArray();
+                CorrectAnswer = answers[j];
+                if (CorrectAnswer.startsWith("}")) {
+                    char[] answerArr = CorrectAnswer.toCharArray();
                     char[] newanswerArr = new char[answerArr.length - 1];
                     System.arraycopy(answerArr, 1, newanswerArr, 0, newanswerArr.length);
-                    answer = String.valueOf(newanswerArr);
-
-                        if (answerPlaced.startsWith("}")) {
-                            String answer2 = answers[j];
-                            char[] answerArr1 = answer2.toCharArray();
-                            char[] newanswerArr2 = new char[answerArr1.length - 1];
-                            System.arraycopy(answerArr1, 1, newanswerArr2, 0, newanswerArr2.length);
-                            answerPlaced = String.valueOf(newanswerArr2);
-                        }
-
-                if(answer.equals(answerPlaced)){/*Da dovursha tam zeleno cherveno za otgovorite*/}
+                    CorrectAnswer = String.valueOf(newanswerArr);
+                    break;
+                }
+                    }
+                if (answerPlaced.startsWith("}")) {
+                    char[] answerArr1 = answerPlaced.toCharArray();
+                    char[] newanswerArr2 = new char[answerArr1.length - 1];
+                    System.arraycopy(answerArr1, 1, newanswerArr2, 0, newanswerArr2.length);
+                    answerPlaced = String.valueOf(newanswerArr2);
+                    gradeCounter++;
                     %>
+                <div class="greenAnswer">Correct answer: <%=CorrectAnswer%> </div>
+                <div class="greenAnswer">Answer placed: <%=answerPlaced%></div>
+                <% }
+                else{ %>
+                <div class="redAnswer">Correct answer: <%=CorrectAnswer%> </div>
+                <div class="redAnswer">Answer placed: <%=answerPlaced%></div>
+              <%  }
+                %>
 
-
-        <%=answer%> <br>
-        Answer placed: <%=answerPlaced%>
-        <br>
         <%
-           }
   }
-        } %>
-        </div>
-    <br><br>
-        <% } %>
+       %>
+        </div><br>
+        <% }
+        int numberOfQuestions = questionIDS.size();
+        %>
+            <p class="totalScore">
+                Score: <%=gradeCounter%> of <%=numberOfQuestions%>
+            </p>
 
-    </h1>
-    </div>
+
+
 </body>
 </html>

@@ -46,12 +46,17 @@
                 HashMap<Integer, String> title2 = (HashMap<Integer, String>) session.getAttribute("titles");
                 Iterator<Integer> keySet2 = title2.keySet().iterator();
                 String tit;
+                int counter = 0;
                 while(keySet2.hasNext()){
+                    if(counter >= 11){
+                        break;
+                    }
                     int key1 = keySet2.next();
                     tit = title2.get(key1);
             %>
             <li class="menu-item" onclick="location.href='readyToViewContentServlet?id=<%=key1%>'"><i class="fa fa-minus"></i><%=tit%></li>
             <%
+                    counter++;
                 }
             %>
             <li class="menu-item" onclick="location.href='logout.jsp'" ><i class="fa fa-sign-out"></i>Log Out</li>
@@ -95,7 +100,7 @@
     <hr/>
 <%
 
-    if(Objects.equals(st, "teacher")){
+if(Objects.equals(st, "teacher")){
 
 %>
 <style>
@@ -143,9 +148,6 @@
     }
 </script>
 
-
-
-
     <%
         if(sqlJavaClass.checkForHasTest(session)){
     %>
@@ -157,9 +159,6 @@
         <input type="submit" class="deleteContent" name="deleteContent" value="Delete" onclick="on()">
         <p>People who made the test: </p>
     <% }
-
-
-
 
     else{
     %>
@@ -191,7 +190,16 @@ else if (Objects.equals(st, "student")){
 </form>
   <% }
   else{%>
-<form draggable="true" action="/testResultServlet" method="get">
+    <div class="main-menu">
+        <ul>
+            <section class="home">
+                <li class="menu-item" onclick="location.href='StRelookMain.jsp'"><i class="fa fa-home"></i>Home</li>
+                <li class="menu-item" onclick="location.href='profile.jsp'" ><i class="fa fa-user" ></i>Profile</li>
+                <li class="menu-item" onclick="location.href='logout.jsp'" ><i class="fa fa-sign-out"></i>Log Out</li>
+            </section>
+        </ul>
+    </div>
+<form draggable="true" action="${pageContext.request.contextPath}/testResultServlet" method="get">
     <input type="submit" id="addButton2" name="makeingTest2" value="See results">
 
 <%

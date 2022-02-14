@@ -1,0 +1,45 @@
+use demo;
+create table RegTB (
+ID int NOT NULL auto_increment,
+Firstname varchar(255),
+Lastname varchar(255),
+email varchar(255),
+password varchar(255),
+sOrT varchar(255),
+PRIMARY KEY(ID)
+);
+CREATE TABLE content (
+    title varchar(400),
+    text text(10000),
+    code varchar(100),
+    ID int NOT NULL auto_increment,
+    fid int,
+    PRIMARY KEY (ID),
+    FOREIGN KEY (FID) REFERENCES regtb(ID)
+);
+
+CREATE TABLE tests (
+    question varchar(400),
+    answer1 varchar(400),
+    answer2 varchar(400),
+    answer3 varchar(400),
+    answer4 varchar(400),
+    ID int NOT NULL auto_increment,
+    ford int,
+    PRIMARY KEY (ID),
+    FOREIGN KEY (ford) REFERENCES content(ID)
+);
+
+CREATE TABLE answersInfo (
+ID  int NOT null auto_increment,
+answer varchar(400),
+fkeyRegTbContentOwner int,
+fkeyRegTbTestmaker int,
+fkeyTests int,
+fkeyContentId int,
+primary key (ID),
+foreign key (fkeyRegTbContentOwner) references regtb(ID),
+foreign key (fkeyRegTbTestmaker) references regtb (ID),
+foreign key (fkeyTests) references tests(ID),
+foreign key (fkeyContentId) references tests(ford)
+);

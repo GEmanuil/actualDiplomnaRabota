@@ -37,7 +37,7 @@ System.out.println("someone just clicked !!!!");
 <div id="RegBorder">
     <h1>
         <p class="MT">Start using Relook</p>
-        <form action="/regServ" method="post">
+        <form action="${pageContext.request.contextPath}/regServ" method="post">
             <label class="Register FN" for="firstname"></label>
             <div class="fa">
                 <input class="fa" type="text" id="firstname" name="firstname" placeholder="First name" required>

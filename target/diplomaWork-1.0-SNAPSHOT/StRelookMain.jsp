@@ -1,30 +1,37 @@
 <%@ page import="johnatanasov.diplomawork.SQLJavaClass" %>
 <%@ page import="java.util.HashMap" %>
 <%@ page import="java.util.Set" %>
-<%@ page import="java.util.Iterator" %><%--
-  Created by IntelliJ IDEA.
-  User: em4o_
-  Date: 14.12.2021 ã.
-  Time: 18:38
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="java.util.Iterator" %>
 <%@ page contentType="text/html;charset=WINDOWS-1251" language="java" %>
 
+<html>
 <head>
-    <link rel="stylesheet" href="/relookMain.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/relookMain.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400&display=swap" rel="stylesheet">
     <title>My Relook</title>
 
 </head>
-<body>
 <%
     response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
     if(session.getAttribute("email")==null && session.getAttribute("password")==null){
         response.sendRedirect("login.jsp");
     }
 %>
-</body>
-<html>
+<body>
+<div class="main-menu">
+    <ul>
+        <section class="home">
+            <li class="menu-item" onclick="location.href='StRelookMain.jsp'"><i class="fa fa-home"></i>Home</li>
+            <li class="menu-item" onclick="location.href='profile.jsp'" ><i class="fa fa-user" ></i>Profile</li>
+            <li class="menu-item" onclick="location.href='logout.jsp'" ><i class="fa fa-sign-out"></i>Log Out</li>
+        </section>
+    </ul>
+</div>
+<div class="mainDiv">
 <h1 id="mainTxt" draggable="true">
     Relook
 </h1>
@@ -33,10 +40,16 @@
     <li class="RL M L"><a href="logout.jsp">Log Out</a></li>
     <div style="padding-bottom:2000px"></div>
 </ul>
-
-<form  action="/codeEnterServlet" method="post">
-    <label id="codeTyped" for="code">CODE</label><br>
-    <input class="Register E B" type="text" id="code" name="code" required><br><br>
-    <input class="Register S" type="submit" value="Submit"><br>
+<div class="codeSubmit">
+    <p style="color: #100e0e">
+        You should take a code from your teacher to have access to the content.
+    </p>
+<form  action="${pageContext.request.contextPath}/codeEnterServlet" method="post">
+    <label id="codeTyped" for="code"></label><br>
+    <input class="tTitle" type="text" id="code" name="code" placeholder="code" required><br><br>
+    <input class="submitButt" type="submit" value="Submit"><br>
 </form>
+</div>
+</div>
+</body>
 </html>
