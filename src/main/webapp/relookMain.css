@@ -151,7 +151,6 @@ ul{
 }
 
 .main-menu{
-
     background-color: #333333;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -244,5 +243,44 @@ section.home{
 }
 .deleteBut{
     color: red;
+}
+.mainDiv{
+    margin-left: 75px;
+}
+.tTitle {
+    resize: none;
+    width: 118px;
+    height: 45px;
+    background-color: #dddddd;
+    color: #666666;
+    padding: 1em;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    outline: none;
+    font-family: "Heebo", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.4;
+    transition: all 0.1s;
+}
+.tTitle:hover {
+    cursor: pointer;
+    background-color: #eeeeee;
+}
+
+.tTitle:focus {
+    cursor: text;
+    color: #333333;
+    background-color: white;
+    border-color: #333333;
+}
+.codeSubmit{
+    font-family: cursive;
+    border-style: groove;
+    border-radius: 5px;
+    background-color: rgb(251, 252, 216);
+    margin: auto;
+    width: 500px;
+    text-align: center;
 }
 /* This is a comment! */

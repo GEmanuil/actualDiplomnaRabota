@@ -12,7 +12,7 @@
 <%@ page import="java.util.Iterator" %>
 <html>
 <head>
-    <link rel="stylesheet" href="/addingContent.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/addingContent.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -54,7 +54,7 @@
 %>
 <h1 id="RegBorder">
     <p class="MT">Add your information here </p>
-    <form  action="/editContentServlet" method="post">
+    <form  action="${pageContext.request.contextPath}/editContentServlet" method="post">
         <label class="title" for="title">Title</label><br>
         <textarea class="tTitle" id="title" name="title" placeholder="Title"  required><%=title%></textarea><br><br>
         <label class="text" for="text">Text</label><br>

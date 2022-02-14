@@ -451,6 +451,19 @@ ul{
     border-style: groove;
     background-color: #e0b69a;
 }
+.greenAnswer{
+    font-size: 25px;
+    border-style: none;
+    background-color: #428a32;
+}
+.redAnswer{
+    font-size: 25px;
+    border-style: none;
+    background-color: #fa4747;
+}
+.totalScore{
+
+}
 /* This is a comment! */
 
 
