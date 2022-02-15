@@ -151,7 +151,6 @@ public class SQLJavaClass {
 
                 id = rs.getInt("id");
             }
-            System.out.println("In SQL updatePass func: " + id);
 
             String sql2 = "update regtb set password=? where ID = ?;";
 
@@ -1170,7 +1169,6 @@ public class SQLJavaClass {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        System.out.println("String arr: " + result[0] + result[1]);
         return result;
     }
     public void deleteQuestion(int id){
