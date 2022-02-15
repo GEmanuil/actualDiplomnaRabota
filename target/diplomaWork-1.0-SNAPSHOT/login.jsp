@@ -36,7 +36,7 @@
 </ul>
 <h1 id="RegBorder">
     <p class="MT">Login to Relook</p>
-    <form  action="/logServe" method="post">
+    <form  action="${pageContext.request.contextPath}/logServe" method="post">
         <label class="Register E" for="email"></label>
         <div class="ea">
             <input class="ea" type="email" id="email" name="email" placeholder="Email address" required>

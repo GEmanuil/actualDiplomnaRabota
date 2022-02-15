@@ -37,12 +37,17 @@
                     HashMap<Integer, String> title2 = (HashMap<Integer, String>) session.getAttribute("titles");
                     Iterator<Integer> keySet2 = title2.keySet().iterator();
                     String tit;
+                    int counter = 0;
                     while(keySet2.hasNext()){
+                        if(counter >= 11){
+                            break;
+                        }
                         int key1 = keySet2.next();
                         tit = title2.get(key1);
                 %>
                 <li class="menu-item" onclick="location.href='readyToViewContentServlet?id=<%=key1%>'"><i class="fa fa-minus"></i><%=tit%></li>
                 <%
+                        counter++;
                     }
                 %>
                 <li class="menu-item" onclick="location.href='logout.jsp'" ><i class="fa fa-sign-out"></i>Log Out</li>
