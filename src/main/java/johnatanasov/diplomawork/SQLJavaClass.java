@@ -151,7 +151,6 @@ public class SQLJavaClass {
 
                 id = rs.getInt("id");
             }
-
             String sql2 = "update regtb set password=? where ID = ?;";
 
             PreparedStatement ps;
@@ -1176,9 +1175,9 @@ public class SQLJavaClass {
         Connection con = getConnection();
         PreparedStatement ps;
 
-        String sql0 = "SET foreign_key_checks = 0";
+        String sql9 = "SET foreign_key_checks = 0";
         try{
-            ps = con.prepareStatement(sql0);
+            ps = con.prepareStatement(sql9);
             ps.executeUpdate();
         }
         catch (SQLException e){
