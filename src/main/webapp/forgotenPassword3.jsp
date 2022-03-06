@@ -28,7 +28,7 @@
 </ul>
 <h1 id="RegBorder">
     <p class="MT">Enter your new password.</p>
-    <form  action="/forgottenPassServlet3" method="post">
+    <form  action="${pageContext.request.contextPath}/forgottenPassServlet3" method="post">
         <label class="Register E" for="password">password</label><br>
         <input class="Register E B" type="password" id="password" name="password" required><br><br>
 

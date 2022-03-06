@@ -26,7 +26,7 @@
 </ul>
 <h1 id="RegBorder"> One more step. Please enter the verification code which was sent to you.
     <br><br>
-    <form   action="/regForCodeServlet" method="post">
+    <form   action="${pageContext.request.contextPath}/regForCodeServlet" method="post">
         <label><input id="tb1" type="text" name="code"><br><br><input type="submit"></label>
     </form></h1>
 </html>

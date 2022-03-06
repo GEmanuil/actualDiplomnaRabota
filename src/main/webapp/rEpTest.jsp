@@ -21,8 +21,6 @@
 </head>
 <body>
 
-
-
 <h1 id="mainTxt" draggable="true">
     Relook
 </h1>

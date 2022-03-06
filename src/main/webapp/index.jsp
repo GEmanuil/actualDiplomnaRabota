@@ -8,9 +8,9 @@
 <h1><%= "Hello Emanuil :>)!" %>
 </h1>
 <br/>
-<a href="/hello">Hello Servlet</a>
+<a href="${pageContext.request.contextPath}/hello">Hello Servlet</a>
 <p></p>
-<a href="/test.jsp">testing</a>
+<a href="${pageContext.request.contextPath}/test.jsp">testing</a>
 <p></p>
 <a href="rEpTest.jsp">Reelook register page</a>
 </body>

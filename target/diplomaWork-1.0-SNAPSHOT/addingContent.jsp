@@ -12,7 +12,7 @@
 <%@ page import="java.util.Iterator" %>
 <html>
     <head>
-        <link rel="stylesheet" href="/addingContent.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/addingContent.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">

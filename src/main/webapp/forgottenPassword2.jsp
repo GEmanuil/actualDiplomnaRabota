@@ -28,7 +28,7 @@
 </ul>
 <h1 id="RegBorder">
     <p class="MT">Enter your code</p>
-    <form  action="/forgottenPassServlet2" method="post">
+    <form  action="${pageContext.request.contextPath}/forgottenPassServlet2" method="post">
         <label class="Register E" for="code">code</label><br>
         <input class="Register E B" type="text" id="code" name="code" required><br><br>
 
