@@ -19,7 +19,6 @@ public class SQLJavaClass {
         try {
             Class.forName(dbDriver);
         } catch (ClassNotFoundException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
@@ -58,7 +57,7 @@ public class SQLJavaClass {
     public boolean check(regInfoClass member) {
         loadDriver(dbDriver);
         Connection con = getConnection();
-        String sql = "SELECT * FROM regtb  WHERE email = ? and password = ?;";
+        String sql = "SELECT * FROM RegTB  WHERE email = ? and password = ?;";
         PreparedStatement ps;
         boolean cheki;
         try {
@@ -81,7 +80,7 @@ public class SQLJavaClass {
         String result = null;
         loadDriver(dbDriver);
         Connection con = getConnection();
-        String sql = "SELECT ID FROM regtb WHERE email = ? and password = ?;";
+        String sql = "SELECT ID FROM RegTB WHERE email = ? and password = ?;";
         PreparedStatement ps;
         try {
             ps = con.prepareStatement(sql);
@@ -114,7 +113,7 @@ public class SQLJavaClass {
     public boolean checkOnlyForEmail(regInfoClass member) {
         loadDriver(dbDriver);
         Connection con = getConnection();
-        String sql = "SELECT * FROM regtb  WHERE email = ?;";
+        String sql = "SELECT * FROM RegTB  WHERE email = ?;";
 
         PreparedStatement ps;
         boolean chekis;
@@ -137,7 +136,7 @@ public class SQLJavaClass {
         Connection con = getConnection();
         PreparedStatement p = null;
         ResultSet rs = null;
-        String sql = "select ID from regtb where email=?";
+        String sql = "select ID from RegTB where email=?";
         int id = -1;
         // Try block to catch exception/s
         try {
@@ -151,7 +150,7 @@ public class SQLJavaClass {
 
                 id = rs.getInt("id");
             }
-            String sql2 = "update regtb set password=? where ID = ?;";
+            String sql2 = "update RegTB set password=? where ID = ?;";
 
             PreparedStatement ps;
                 ps = con.prepareStatement(sql2);
@@ -171,7 +170,7 @@ public class SQLJavaClass {
             Connection con = getConnection();
             PreparedStatement p = null;
             ResultSet rs = null;
-            String sql = "select ID from regtb where email=?";
+            String sql = "select ID from RegTB where email=?";
             int id = -1;
             try {
                 p = con.prepareStatement(sql);
@@ -237,7 +236,7 @@ public class SQLJavaClass {
         Connection con = getConnection();
         PreparedStatement p = null;
         ResultSet rs = null;
-        String sql = "select ID from regtb where email=?";
+        String sql = "select ID from RegTB where email=?";
         int id = -1;
         try {
             p = con.prepareStatement(sql);
@@ -304,7 +303,7 @@ public class SQLJavaClass {
         PreparedStatement p = null;
         ResultSet rs = null;
         ResultSet rs2 = null;
-        String sql = "select ID from regtb where email=?";
+        String sql = "select ID from RegTB where email=?";
         int idCounter = 0;
         int id = -1;
         try {
@@ -603,7 +602,7 @@ public class SQLJavaClass {
     public String checkForST(regInfoClass member) {
         loadDriver(dbDriver);
         Connection con = getConnection();
-        String sql = "SELECT sOrT FROM regtb  WHERE email = ? and password = ?;";
+        String sql = "SELECT sOrT FROM RegTB  WHERE email = ? and password = ?;";
         PreparedStatement ps;
         String check = null;
         ResultSet rs;
@@ -851,7 +850,7 @@ public class SQLJavaClass {
         Connection con = getConnection();
         PreparedStatement ps;
         ResultSet resulset;
-        String sql0 = "SELECT ID FROM regtb WHERE email = ?;";
+        String sql0 = "SELECT ID FROM RegTB WHERE email = ?;";
         try {
             ps = con.prepareStatement(sql0);
             ps.setString(1, emailOfTestMaker);
@@ -900,7 +899,7 @@ public class SQLJavaClass {
         PreparedStatement ps;
         ResultSet resulset;
         int emailId = 0;
-        String sql0 = "SELECT ID FROM regtb WHERE email = ?;";
+        String sql0 = "SELECT ID FROM RegTB WHERE email = ?;";
         try {
             ps = con.prepareStatement(sql0);
             ps.setString(1, emailOfTestMaker);
@@ -1055,7 +1054,7 @@ public class SQLJavaClass {
         catch (SQLException e) {
             e.printStackTrace();
         }
-        String sql3 = "SELECT Firstname FROM regtb WHERE ID = ?;";
+        String sql3 = "SELECT Firstname FROM RegTB WHERE ID = ?;";
         ArrayList<String> fnames = new ArrayList<>();
         for (Integer integer : regtbid) {
             try {
@@ -1156,7 +1155,7 @@ public class SQLJavaClass {
         Connection con = getConnection();;
         ResultSet resultSet;
         PreparedStatement ps;
-        String sql = "select Firstname, Lastname from regtb where email=?";
+        String sql = "select Firstname, Lastname from RegTB where email=?";
         try{
             ps = con.prepareStatement(sql);
             ps.setString(1, email);

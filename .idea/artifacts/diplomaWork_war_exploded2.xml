@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="diplomaWork:war exploded2">
+    <output-path>$PROJECT_DIR$/out/artifacts/diplomaWork_war_exploded2</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="diplomaWork" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="file-copy" path="$PROJECT_DIR$/lib/mysql-connector-java-8.0.27.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../Others/mailJar/javax.mail-1.6.2.jar" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="diplomaWork/web/Web" />
+    </root>
+  </artifact>
+</component>
