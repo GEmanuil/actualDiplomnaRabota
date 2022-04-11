@@ -54,9 +54,11 @@ public class regInfoClass implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
+
     public String getTeachStud(){
         return teachStud;
     }
+
     public void setTeachStud(String teachStud){
         this.teachStud = teachStud;
     }

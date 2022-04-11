@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: em4o_
-  Date: 14.12.2021 ã.
-  Time: 18:38
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=WINDOWS-1251" language="java" %>
 <html>
 <head>
@@ -83,15 +76,6 @@ System.out.println("someone just clicked !!!!");
                     <li><a href="https://discord.com/">Discord</a></li>
                 </ul>
             </div>
-<%--            <div class="footer-col">--%>
-<%--                <h4>online shop</h4>--%>
-<%--                <ul>--%>
-<%--                    <li><a href="#">watch</a></li>--%>
-<%--                    <li><a href="#">bag</a></li>--%>
-<%--                    <li><a href="#">shoes</a></li>--%>
-<%--                    <li><a href="#">dress</a></li>--%>
-<%--                </ul>--%>
-<%--            </div>--%>
             <div class="footer-col">
                 <h4>follow</h4>
                 <div class="social-links">
