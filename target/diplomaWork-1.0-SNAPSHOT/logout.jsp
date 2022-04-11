@@ -18,7 +18,7 @@
         ses.removeAttribute("email");
         ses.removeAttribute("userID");
         ses.invalidate();
-        response.sendRedirect("login.jsp");
+        response.sendRedirect("index.jsp");
     %>
 </body>
 </html>

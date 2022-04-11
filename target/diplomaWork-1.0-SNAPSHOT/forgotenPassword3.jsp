@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=WINDOWS-1251" language="java" %>
 <head>
-    <link rel="stylesheet" href="forgotenPassword1.css">
+    <link rel="stylesheet" href="css/forgotenPassword1.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
     <title>My Relook</title>
 
@@ -22,13 +22,13 @@
     Relook
 </h1>
 <ul id="lr" class="RL">
-    <li class="RL M L"><a href="login.jsp">Log In</a></li>
+    <li class="RL M L"><a href="index.jsp">Log In</a></li>
     <li class="RL M R"><a href="rEpTest.jsp">Register</a></li>
     <div style="padding-bottom:2000px"></div>
 </ul>
 <h1 id="RegBorder">
     <p class="MT">Enter your new password.</p>
-    <form  action="/forgottenPassServlet3" method="post">
+    <form  action="${pageContext.request.contextPath}/forgottenPassServlet3" method="post">
         <label class="Register E" for="password">password</label><br>
         <input class="Register E B" type="password" id="password" name="password" required><br><br>
 

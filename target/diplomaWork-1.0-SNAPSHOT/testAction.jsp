@@ -8,7 +8,7 @@
 <%@ page import="java.util.ArrayList" %>
 <html>
 <head>
-    <link rel="stylesheet" href="/addingContent.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/addingContent.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
     <title>My Relook</title>
 

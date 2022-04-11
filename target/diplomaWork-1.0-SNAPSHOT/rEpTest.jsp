@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=WINDOWS-1251" language="java" %>
 <html>
 <head>
-    <link rel="stylesheet" href="register.css">
+    <link rel="stylesheet" href="css/register.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -25,7 +25,7 @@
     Relook
 </h1>
 <ul id="lr" class="RL">
-    <li class="RL M L"><a href="login.jsp">Log In</a></li>
+    <li class="RL M L"><a href="index.jsp">Log In</a></li>
     <li class="RL M R"><a href="rEpTest.jsp">Register</a></li>
     <div style="padding-bottom:2000px"></div>
 </ul>

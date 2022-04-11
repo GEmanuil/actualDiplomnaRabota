@@ -3,7 +3,7 @@
 <%@ page import="java.util.ArrayList" %>
 <html>
 <head>
-    <link rel="stylesheet" href="/addingContent.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/addingContent.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -48,7 +48,7 @@
 
 
             if(answer3 == null){ %>
-        <form action="/testAction2" method="get">
+        <form action="${pageContext.request.contextPath}/testAction2" method="get">
         <label for="answerTATA"></label>
         <textarea id="answerTATA" name="answerTATA" required></textarea><br><br>
 
@@ -56,7 +56,7 @@
 
         else{ %>
 
-    <form action="/testAction2" method="get">
+    <form action="${pageContext.request.contextPath}/testAction2" method="get">
     <label><input id="1" type="radio" name="checkBox" value="answer1" required></label>
     <label class="Register LN">A) <%=answer1%></label><br><br>
 

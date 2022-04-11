@@ -5,7 +5,7 @@
 <%@ page import="java.util.Iterator" %>
 <html>
 <head>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/EditTest4.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/EditTest4.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -54,14 +54,15 @@
             </section>
         </ul>
     </div>
-
-    <form  action="${pageContext.request.contextPath}/servForTestUpdate" method="post">
-        <label class="Register FN" for="Question">Question: </label><br>
-        <input class="Register FN B" type="text" id="Question" name="Question" value="<%=request.getAttribute("title")%>" required><br><br>
-        <label class="Register LN" for="answer">answer: </label><br>
-        <input class="Register LN B" type="text" id="answer" name="answer" value="<%=request.getAttribute("answer")%>" required><br><br>
-        <input class="Register S" type="submit" value="UPDATE"><br>
-    </form>
+    <div class="boxy">
+        <form  action="${pageContext.request.contextPath}/servForTestUpdate" method="post">
+            <label class="QuestionText" for="Question">Question: </label><br><hr><br>
+            <input class="Register FN B" type="text" id="Question" name="Question" value="<%=request.getAttribute("title")%>" required><br><br>
+            <label class="answerText" for="answer">Answer: </label><br><hr><br>
+            <input class="Register LN B" type="text" id="answer" name="answer" value="<%=request.getAttribute("answer")%>" required><br><br>
+            <input class="Register S" type="submit" value="UPDATE"><br>
+        </form>
+    </div>
 </div>
 </body>
 </html>

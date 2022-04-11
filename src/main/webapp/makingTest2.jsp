@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: em4o_
-  Date: 27.12.2021 ã.
-  Time: 11:49
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=WINDOWS-1251" language="java" %>
 <%@ page import="johnatanasov.diplomawork.*"  %>
 <%@ page import="mail.*"  %>
@@ -13,7 +6,7 @@
 <html>
 <head>
 
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/addingContent.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/EditTest4.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -58,16 +51,16 @@
         Relook
     </h1>
     <h1 id="makingTestText">
+        <div class="boxy">
         <form  action="${pageContext.request.contextPath}/servForTest" method="post">
-            <label class="Register FN" for="Question">Question: </label><br>
+            <label class="QuestionText" for="Question">Question: </label><br><hr>
             <input class="Register FN B" type="text" id="Question" name="Question" required><br><br>
-            <label class="Register LN" for="answer">answer: </label><br>
+            <label class="answerText" for="answer">Answer: </label><br><hr>
             <input class="Register LN B" type="text" id="answer" name="answer" required><br><br>
-            <input class="Register S" type="submit" value="SUBMIT"><br>
+            <input class="Register S" type="submit" value="ADD"><br>
         </form>
-
+        </div>
     </h1>
-
 </div>
 </body>
 </html>

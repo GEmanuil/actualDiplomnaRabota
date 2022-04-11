@@ -16,7 +16,7 @@
 <%@ page import="java.util.Iterator" %>
 <html>
 <head>
-    <link rel="stylesheet" href="/readyToViewContent2.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/readyToViewContent2.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -175,7 +175,7 @@ if(Objects.equals(st, "teacher")){
                 int key = keySet.next();
                 a = idNamesOftestMakers.get(key);
         %>
-<a href="/testResultServlet?id=<%=key%>"><button type="button" id="addButton1" name="addContent"><%=a%></button></a>
+<a href="${pageContext.request.contextPath}/testResultServlet?id=<%=key%>"><button type="button" id="addButton1" name="addContent"><%=a%></button></a>
 <%
     }
 

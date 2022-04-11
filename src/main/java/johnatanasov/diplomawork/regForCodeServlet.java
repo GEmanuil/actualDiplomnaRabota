@@ -23,10 +23,11 @@ public class regForCodeServlet extends HttpServlet {
         if(code.equals(codeFromJSP)){
             regInfoClass per = (regInfoClass) session.getAttribute("personOb");
             persons.insert(per);
-            PrintWriter out = response.getWriter();
-            out.println("<html><body>");
-            out.println("<h1>" + message + "</h1>");
-            out.println("</body></html>");
+            getServletContext().getRequestDispatcher("/successfulRegistreation.jsp").forward(request, response);
+//            PrintWriter out = response.getWriter();
+//            out.println("<html><body>");
+//            out.println("<h1>" + message + "</h1>");
+//            out.println("</body></html>");
         }
         else {
             System.out.println(":(");

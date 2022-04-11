@@ -10,9 +10,13 @@ import java.util.List;
 
 public class SQLJavaClass {
 
-    private final String dbUrl = "jdbc:mysql://127.0.0.1:3306/relook";
+//    private final String dbUrl = "jdbc:mysql://185.96.254.253:3306/relook";
+//    private final String dbUname = "root";
+//    private final String dbPassword = "P@ssp0rt";
+//    private final String dbDriver = "com.mysql.cj.jdbc.Driver";
+    private final String dbUrl = "jdbc:mysql://localhost:3306/demo";
     private final String dbUname = "root";
-    private final String dbPassword = "P@ssp0rt";
+    private final String dbPassword = "c6gkjN9ELV7ZQQxE";
     private final String dbDriver = "com.mysql.cj.jdbc.Driver";
 
     public void loadDriver(String dbDriver) {

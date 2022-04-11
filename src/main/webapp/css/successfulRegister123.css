@@ -1,12 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-@import 'https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300';
 body {
     background-color: rgb(40, 43, 44);
     font-family: 'Fira Sans', sans-serif;
     display: block;
     margin: 8px;
-  }
-  #mainTxt{
+}
+
+#mainTxt{
     width: 150px;
     margin-left: 20px;
     font-family:cursive;
@@ -15,9 +14,9 @@ body {
     text-align: center;
     background-color: rgb(251, 252, 216);
     border-radius: 5px;
-    }
+}
 
-  .RL{
+.RL{
     /*To finish after*/
     list-style-type: none;
     margin: 0;
@@ -25,48 +24,52 @@ body {
     overflow: hidden;
     background-color: #333;
     float: left;
-  }
-  .RL a{
+}
+.RL a{
     display: block;
     color: white;
     /* text-align: center; */
     padding: 10px 10px;
     text-decoration: none;
-  }
-    .RL .M:hover:not(.RL .R){
-     background-color: rgb(253, 208, 7);
-  }
-  .RL .R{
+}
+.RL .M:hover:not(.RL .L){
     background-color: rgb(253, 208, 7);
-  }
-  #lr{
+}
+/*.RL .L{*/
+/*    background-color: rgb(253, 208, 7);*/
+/*}*/
+#lr{
     float:right;
     margin-top: -75px;
     max-height: 38px;
-    }
-    #RegBorder{
-        text-align: center;
-        border-style:solid;
-        border-radius: 8px;
-        border-color: white;
-        background-color: rgb(251, 252, 236);
-        margin: auto;
-        margin-top: 100px;
-        max-width: 460px;
-    }
-    .MT{
-        text-align: center;
-        font-size: 35px;
-        margin-top: 40px;
-        /* text-shadow: 1px 1px red; */
-    }
-    .Register{
-      /* margin-right: 50%; */
-      font-size: 20px;
-    }
-   #tb1{
-       text-align: center;
-   }
+    color: #FFFFFF;
+    font-family: 'Fira Sans', sans-serif;
+}
+#RegBorder{
+    text-align: center;
+    border-style:groove;
+    border-radius: 8px;
+    background-color: rgb(251, 252, 236);
+    margin: auto;
+    margin-top: 100px;
+    max-width: 430px;
+}
+.MT{
+    text-align: center;
+    font-size: 35px;
+    margin-top: 40px;
+    /* text-shadow: 1px 1px red; */
+}
+.Register{
+    /* margin-right: 50%; */
+    font-size: 20px;
+}
+
+.forgottenPass{
+
+    font-size: 20px;
+
+}
 .S{
     font-size: 20px;
     color: black;
@@ -91,17 +94,34 @@ body {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     transform: translateY(2px);
     transition-delay: 50ms;
+
 }
 
-
-
-.CheckBox{
-    font-size: 20px;
+::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+    border-radius: 10px;
 }
-#RegisterAs{
-    font-size: 25px;
-    margin-top: 15px;
-    margin-bottom: 10px;
+
+::-webkit-scrollbar
+{
+    width: 10px;
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+    background-color: #AAA;
+    border-radius: 10px;
+    background-image: -webkit-linear-gradient(90deg,
+    rgba(0, 0, 0, .2) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(0, 0, 0, .2) 50%,
+    rgba(0, 0, 0, .2) 75%,
+    transparent 75%,
+    transparent)
 }
 .container{
     line-height: 1.5;
@@ -124,7 +144,7 @@ ul{
     box-sizing: border-box;
     background-color: #100e0e;
     padding: 70px 0;
-    margin-top: 100px;
+    margin-top: 400px;
 }
 .footer-col{
     width: 25%;
@@ -191,108 +211,7 @@ ul{
     background-color: #ffffff;
 }
 
-/*responsive*/
-@media(max-width: 767px){
-    .footer-col{
-        box-sizing: border-box;
-        width: 50%;
-        margin-bottom: 30px;
-    }
-}
-@media(max-width: 574px){
-    .footer-col{
-        box-sizing: border-box;
-        width: 100%;
-    }
-}
 
-::-webkit-scrollbar-track
-{
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-    background-color: #F5F5F5;
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar
-{
-    width: 10px;
-    background-color: #F5F5F5;
-}
-
-::-webkit-scrollbar-thumb
-{
-    background-color: #AAA;
-    border-radius: 10px;
-    background-image: -webkit-linear-gradient(90deg,
-    rgba(0, 0, 0, .2) 25%,
-    transparent 25%,
-    transparent 50%,
-    rgba(0, 0, 0, .2) 50%,
-    rgba(0, 0, 0, .2) 75%,
-    transparent 75%,
-    transparent)
-}
-
-.fa {
-    position: relative;
-    margin: auto;
-    width: 100%;
-    max-width: 280px;
-    border-radius: 3px;
-    overflow: hidden;
-}
-.fa input {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    width: 100%;
-    border: 0;
-    font-family: inherit;
-    padding: 2px 12px 0 12px;
-    height: 45px;
-    font-size: 15px;
-    font-weight: 400;
-    background: rgba(0, 0, 0, 0.02);
-    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.3);
-    color: #000;
-    transition: all 0.15s ease;
-}
-.fa:hover {
-    background: rgba(0, 0, 0, 0.04);
-    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.5);
-    transition: all 0.3s ease;
-}
-
-
-.la {
-    position: relative;
-    margin: auto;
-    width: 100%;
-    max-width: 280px;
-    border-radius: 3px;
-    overflow: hidden;
-}
-.la input {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    width: 100%;
-    border: 0;
-    font-family: inherit;
-    padding: 2px 12px 0 12px;
-    height: 45px;
-    font-size: 15px;
-    font-weight: 400;
-    background: rgba(0, 0, 0, 0.02);
-    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.3);
-    color: #000;
-    transition: all 0.15s ease;
-}
-.la:hover {
-    background: rgba(0, 0, 0, 0.04);
-    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.5);
-    transition: all 0.3s ease;
-}
 
 .ea {
     position: relative;
@@ -354,34 +273,4 @@ ul{
     box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.5);
     transition: all 0.3s ease;
 }
-
-
-.rpa {
-    position: relative;
-    margin: auto;
-    width: 100%;
-    max-width: 280px;
-    border-radius: 3px;
-    overflow: hidden;
-}
-.rpa input {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    width: 100%;
-    border: 0;
-    font-family: inherit;
-    padding: 2px 12px 0 12px;
-    height: 45px;
-    font-size: 15px;
-    font-weight: 400;
-    background: rgba(0, 0, 0, 0.02);
-    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.3);
-    color: #000;
-    transition: all 0.15s ease;
-}
-.rpa:hover {
-    background: rgba(0, 0, 0, 0.04);
-    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.5);
-    transition: all 0.3s ease;
-}
+/* This is a comment! */

@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="relooktest2">
-    <output-path>$PROJECT_DIR$/out/artifacts/relooktest2</output-path>
-    <root id="archive" name="diplomaWork_war exploded2 archive.war">
-      <element id="artifact" artifact-name="diplomaWork:war exploded2" />
-    </root>
-  </artifact>
-</component>

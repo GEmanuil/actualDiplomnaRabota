@@ -12,7 +12,7 @@
 <%@ page import="java.util.Iterator" %>
 <html>
 <head>
-    <link rel="stylesheet" href="/addingContent.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/addingContent.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -64,7 +64,7 @@
 
 <h1 id="makingTestText">
 
-    <form  action="/servForTest" method="post">
+    <form  action="${pageContext.request.contextPath}/servForTest" method="post">
         <label class="Register FN" for="Question">Question: </label><br>
         <textarea class="Register FN B" type="text" id="Question" name="Question" required></textarea><br><br>
         Answers:<br>

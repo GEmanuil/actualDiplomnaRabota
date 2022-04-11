@@ -6,7 +6,7 @@
 
 <html>
 <head>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/relookMain.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/relookMain.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
@@ -18,7 +18,7 @@
 <%
     response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
     if(session.getAttribute("email")==null && session.getAttribute("password")==null){
-        response.sendRedirect("login.jsp");
+        response.sendRedirect("index.jsp");
     }
 %>
 <body>

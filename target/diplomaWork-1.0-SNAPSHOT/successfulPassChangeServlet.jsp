@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=WINDOWS-1251" language="java" %>
 <head>
-    <link rel="stylesheet" href="forgotenPassword1.css">
+    <link rel="stylesheet" href="css/forgotenPassword1.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400&display=swap" rel="stylesheet">
@@ -26,7 +26,7 @@
     Relook
 </h1>
 <ul id="lr" class="RL">
-    <li class="RL M L"><a href="login.jsp">Log In</a></li>
+    <li class="RL M L"><a href="index.jsp">Log In</a></li>
     <li class="RL M R"><a href="register.html">Register</a></li>
     <div style="padding-bottom:2000px"></div>
 </ul>

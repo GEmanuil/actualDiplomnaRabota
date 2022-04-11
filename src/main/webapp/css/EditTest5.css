@@ -1,6 +1,6 @@
 body {
     background-color: rgb(251, 252, 216);
-    /*background-image: url("https://studentspace.org.uk/assets/images/student-space_illustrations_studying.png");*/
+
 }
 #mainTxt{
     width: 150px;
@@ -15,7 +15,6 @@ body {
 .MT{
     color: rgb(0, 0, 0);
     text-align: center;
-    font-family: cursive
 }
 #RegBorder{
     color: rgb(251, 252, 216);
@@ -372,79 +371,113 @@ ul{
     list-style-type: none;
     margin-left: -5px;
 }
-.tTitle {
-    resize: none;
-    width: 500px;
-    height: 60px;
-    background-color: #dddddd;
-    color: #666666;
-    padding: 1em;
-    border-radius: 10px;
-    border: 2px solid transparent;
-    outline: none;
-    font-family: "Heebo", sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.4;
-    transition: all 0.1s;
+.boxy{
+    width: 420px;
+    border: 3px solid #e5ccbb;
+    background: #fff4ec;
+    padding: 50px;
+    margin: 55px auto auto;
+    border-radius: 20px;
 }
-.tTitle:hover {
-    cursor: pointer;
-    background-color: #eeeeee;
-}
-
-.tTitle:focus {
-    cursor: text;
-    color: #333333;
-    background-color: white;
-    border-color: #333333;
-}
-.textB {
-    max-width: 1000px;
-    min-width: 1000px;
-    min-height: 550px;
-    background-color: #dddddd;
-    color: #666666;
-    padding: 1em;
-    border-radius: 10px;
-    border: 2px solid transparent;
-    outline: none;
-    font-family: "Heebo", sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.4;
-    width: 1000px;
-    height: 100px;
-    transition: all 0.1s;
-}
-.textB:hover {
-    cursor: pointer;
-    background-color: #eeeeee;
-}
-
-.textB:focus {
-    cursor: text;
-    color: #333333;
-    background-color: white;
-    border-color: #333333;
-}
-
-.add {
+.UPDATEBUTT{
     color: white;
     font-family: fangsong;
     width: 137px;
     height: 30px;
     background: #5a5a50;
     border-radius: 6px;
-    transition: all .3s cubic-bezier(0.67, 0.17, 0.40, 0.83);
+    transition: all .3s;
+    margin-left: 130px;
 }
-.add:hover {
-    color: black;
-    cursor: pointer;
-    background: #FFFFFF;
+.QuestionText{
+
 }
+#Question{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    border: 0;
+    padding: 10px 12px 0 12px;
+    font-size: 20px;
+    font-weight: 400;
+    background: white;
+    box-shadow: inset 0 -2px 0 rgb(0 0 0 / 30%);
+    color: #876b6b;
+    resize: none;
+    transition: all 0.15s ease;
+    border-radius: 5px;
+}
+#answerA{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 350px;
+    border: 0;
+    padding: 10px 12px 0 12px;
+    font-size: 20px;
+    font-weight: 400;
+    background: white;
+    box-shadow: inset 0 -2px 0 rgb(0 0 0 / 30%);
+    color: #876b6b;
+    border-radius: 5px;
+    resize: none;
+    transition: all 0.15s ease;
+}
+#answerB{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 5px;
+    width: 350px;
+    border: 0;
+    padding: 10px 12px 0 12px;
+    font-size: 20px;
+    font-weight: 400;
+    background: white;
+    box-shadow: inset 0 -2px 0 rgb(0 0 0 / 30%);
+    color: #876b6b;
+    resize: none;
+    transition: all 0.15s ease;
+    border-radius: 5px;
 
-
+}
+#answerC{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 350px;
+    border-radius: 5px;
+    border: 0;
+    padding: 10px 12px 0 12px;
+    font-size: 20px;
+    font-weight: 400;
+    background: white;
+    box-shadow: inset 0 -2px 0 rgb(0 0 0 / 30%);
+    color: #876b6b;
+    resize: none;
+    border-radius: 5px;
+    transition: all 0.15s ease;
+}
+#answerD{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 350px;
+    border: 0;
+    padding: 10px 12px 0 12px;
+    font-size: 20px;
+    font-weight: 400;
+    background: white;
+    box-shadow: inset 0 -2px 0 rgb(0 0 0 / 30%);
+    color: #876b6b;
+    resize: none;
+    transition: all 0.15s ease;
+    border-radius: 5px;
+}
+.tt{
+    font-family: 'Fira Sans';
+}
 /* This is a comment! */
 
 
