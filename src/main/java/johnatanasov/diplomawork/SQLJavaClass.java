@@ -42,8 +42,8 @@ public class SQLJavaClass {
         loadDriver(dbDriver);
         Connection con = getConnection();
         String sql = "insert into RegTB(Firstname, Lastname, email, password, sOrT) values (?, ?, ?, ?, ?);";
-
         PreparedStatement ps;
+
         try {
             ps = con.prepareStatement(sql);
 
@@ -125,7 +125,6 @@ public class SQLJavaClass {
         try {
             ps = con.prepareStatement(sql);
             ps.setString(1, member.getEmail());
-            System.out.println(ps.executeQuery().next() + " ");
             chekis = ps.executeQuery().next();
         } catch (SQLException e) {
             e.printStackTrace();
