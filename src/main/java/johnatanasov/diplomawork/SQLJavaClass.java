@@ -57,6 +57,14 @@ public class SQLJavaClass {
             e.printStackTrace();
         }
 
+        finally {
+            try{
+                con.close();
+            }
+            catch (SQLException a) {
+                a.printStackTrace();
+            }
+        }
     }
     public boolean check(regInfoClass member) {
         loadDriver(dbDriver);
@@ -72,6 +80,14 @@ public class SQLJavaClass {
         } catch (SQLException e) {
             e.printStackTrace();
             cheki = false;
+        }
+        finally {
+            try{
+                con.close();
+            }
+            catch (SQLException a) {
+                a.printStackTrace();
+            }
         }
         return cheki;
     }
@@ -98,6 +114,12 @@ public class SQLJavaClass {
 
         } catch (SQLException e) {
             e.printStackTrace();
+            try{
+                con.close();
+            }
+            catch (SQLException a) {
+                a.printStackTrace();
+            }
         }
 
         String sql1 = "insert into content(title, text, fid, code) values(?, ?, ?, ?);";
@@ -112,6 +134,14 @@ public class SQLJavaClass {
             ps1.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+        finally {
+            try{
+                con.close();
+            }
+            catch (SQLException a) {
+                a.printStackTrace();
+            }
         }
     }
     public boolean checkOnlyForEmail(regInfoClass member) {
@@ -129,6 +159,14 @@ public class SQLJavaClass {
         } catch (SQLException e) {
             e.printStackTrace();
             chekis = false;
+        }
+        finally {
+            try{
+                con.close();
+            }
+            catch (SQLException a) {
+                a.printStackTrace();
+            }
         }
         return chekis;
     }
@@ -164,6 +202,14 @@ public class SQLJavaClass {
              } catch (SQLException ex) {
             ex.printStackTrace();
             }
+            finally {
+                try{
+                    con.close();
+                }
+                catch (SQLException a) {
+                    a.printStackTrace();
+                }
+            }
         }
 
         public String giveLastContentTitle(HttpSession session){
@@ -186,6 +232,13 @@ public class SQLJavaClass {
         }
             catch (SQLException ex) {
                 ex.printStackTrace();
+                    try{
+                        con.close();
+                    }
+                    catch (SQLException a) {
+                        a.printStackTrace();
+                    }
+
             }
             ResultSet rs2 = null;
             String sql2 = "select id from content where fid = ?;";
@@ -229,6 +282,20 @@ public class SQLJavaClass {
                 }
             }catch (SQLException e) {
                 e.printStackTrace();
+                    try{
+                        con.close();
+                    }
+                    catch (SQLException a) {
+                        a.printStackTrace();
+                    }
+            }
+            finally {
+                try{
+                    con.close();
+                }
+                catch (SQLException a) {
+                    a.printStackTrace();
+                }
             }
             return  result;
     }
@@ -295,6 +362,14 @@ public class SQLJavaClass {
             }
         }catch (SQLException e) {
             e.printStackTrace();
+        }
+        finally {
+            try{
+                con.close();
+            }
+            catch (SQLException a) {
+                a.printStackTrace();
+            }
         }
         return  result;
     }
@@ -365,10 +440,19 @@ public class SQLJavaClass {
         }catch (SQLException e) {
             e.printStackTrace();
         }
+        finally {
+            try{
+                con.close();
+            }
+            catch (SQLException a) {
+                a.printStackTrace();
+            }
+        }
         HashMap<Integer, String> titles = new HashMap<>();
         for(int i = 0; i < cOFFids; i++){
             titles.put(Ids[i], Titles[i]);
         }
+
         return titles;
     }
     public String giveContentText(int id){
@@ -389,6 +473,14 @@ public class SQLJavaClass {
         catch (SQLException ex) {
             ex.printStackTrace();
         }
+        finally {
+            try{
+                con.close();
+            }
+            catch (SQLException a) {
+                a.printStackTrace();
+            }
+        }
         return  result;
     }
     public String giveContentTitle(int id){
@@ -408,6 +500,14 @@ public class SQLJavaClass {
         }
         catch (SQLException ex) {
             ex.printStackTrace();
+        }
+        finally {
+            try{
+                con.close();
+            }
+            catch (SQLException a) {
+                a.printStackTrace();
+            }
         }
         return  result;
     }
@@ -431,7 +531,14 @@ public class SQLJavaClass {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+        finally {
+            try{
+                con.close();
+            }
+            catch (SQLException a) {
+                a.printStackTrace();
+            }
+        }
     }
     public void insertTest(String question, String answer, HttpSession session){
         String email = session.getAttribute("email").toString();
@@ -453,6 +560,14 @@ public class SQLJavaClass {
             ps2.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+        finally {
+            try{
+                con.close();
+            }
+            catch (SQLException a) {
+                a.printStackTrace();
+            }
         }
     }
     public void insertTest(String question,  HttpSession session, String A, String B, String C, String D){
@@ -478,6 +593,14 @@ public class SQLJavaClass {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        finally {
+            try{
+                con.close();
+            }
+            catch (SQLException a) {
+                a.printStackTrace();
+            }
+        }
     }
     public HashMap<Integer, String> giveTestTitles(HttpSession session){
         String email = session.getAttribute("email").toString();
@@ -499,7 +622,6 @@ public class SQLJavaClass {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
 
         String[] Titles = new String[counter];
 
@@ -529,6 +651,14 @@ public class SQLJavaClass {
             }
         } catch (Exception e) {
             e.printStackTrace();
+        }
+        finally {
+            try{
+                con.close();
+            }
+            catch (SQLException a) {
+                a.printStackTrace();
+            }
         }
 
         HashMap<Integer, String> titlesIds = new HashMap<>();
@@ -560,6 +690,14 @@ public class SQLJavaClass {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        finally {
+            try{
+                con.close();
+            }
+            catch (SQLException a) {
+                a.printStackTrace();
+            }
+        }
         return answers;
     }
     public void updateQuestions(String question, String answer1, String answer2, String answer3, String answer4, HttpSession session){
@@ -583,6 +721,14 @@ public class SQLJavaClass {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        finally {
+            try{
+                con.close();
+            }
+            catch (SQLException a) {
+                a.printStackTrace();
+            }
+        }
     }
     public void updateQuestion(String question, String answer, HttpSession session){
         int idForQuestion = (int) session.getAttribute("idForQuestion");
@@ -600,6 +746,14 @@ public class SQLJavaClass {
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+        finally {
+            try{
+                con.close();
+            }
+            catch (SQLException a) {
+                a.printStackTrace();
+            }
         }
     }
     public String checkForST(regInfoClass member) {
@@ -620,6 +774,14 @@ public class SQLJavaClass {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        finally {
+            try{
+                con.close();
+            }
+            catch (SQLException a) {
+                a.printStackTrace();
+            }
+        }
         return check;
     }
     public String giveContentCode(int id){
@@ -639,6 +801,14 @@ public class SQLJavaClass {
         }
         catch (SQLException ex) {
             ex.printStackTrace();
+        }
+        finally {
+            try{
+                con.close();
+            }
+            catch (SQLException a) {
+                a.printStackTrace();
+            }
         }
         return  result;
     }
@@ -691,8 +861,14 @@ public class SQLJavaClass {
         catch (SQLException ex) {
             ex.printStackTrace();
         }
-
-
+        finally {
+            try{
+                con.close();
+            }
+            catch (SQLException a) {
+                a.printStackTrace();
+            }
+        }
         return  result;
     }
     public String giveContentText(String code){
@@ -712,6 +888,14 @@ public class SQLJavaClass {
         }
         catch (SQLException ex) {
             ex.printStackTrace();
+        }
+        finally {
+            try{
+                con.close();
+            }
+            catch (SQLException a) {
+                a.printStackTrace();
+            }
         }
         return  result;
     }
@@ -747,6 +931,14 @@ public class SQLJavaClass {
         }
         catch (SQLException ex) {
             ex.printStackTrace();
+        }
+        finally {
+            try{
+                con.close();
+            }
+            catch (SQLException a) {
+                a.printStackTrace();
+            }
         }
         return result;
     }
@@ -795,6 +987,14 @@ public class SQLJavaClass {
         catch (SQLException ex) {
             ex.printStackTrace();
         }
+        finally {
+            try{
+                con.close();
+            }
+            catch (SQLException a) {
+                a.printStackTrace();
+            }
+        }
         return idsOfquestions;
     }
 
@@ -815,6 +1015,14 @@ public class SQLJavaClass {
         }
         catch (SQLException ex) {
             ex.printStackTrace();
+        }
+        finally {
+            try{
+                con.close();
+            }
+            catch (SQLException a) {
+                a.printStackTrace();
+            }
         }
         return result;
     }
@@ -838,6 +1046,14 @@ public class SQLJavaClass {
 
         } catch (Exception e) {
             e.printStackTrace();
+        }
+        finally {
+            try{
+                con.close();
+            }
+            catch (SQLException a) {
+                a.printStackTrace();
+            }
         }
         return answers;
     }
@@ -893,6 +1109,14 @@ public class SQLJavaClass {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        finally {
+            try{
+                con.close();
+            }
+            catch (SQLException a) {
+                a.printStackTrace();
+            }
+        }
     }
 
     public int givepersonId(HttpSession session) {
@@ -912,6 +1136,14 @@ public class SQLJavaClass {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+        finally {
+            try{
+                con.close();
+            }
+            catch (SQLException a) {
+                a.printStackTrace();
+            }
         }
         return emailId;
     }
@@ -934,7 +1166,14 @@ public class SQLJavaClass {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+        finally {
+            try{
+                con.close();
+            }
+            catch (SQLException a) {
+                a.printStackTrace();
+            }
+        }
         return answer;
     }
 
@@ -1005,7 +1244,14 @@ public class SQLJavaClass {
                 e.printStackTrace();
                 cheki = false;
             }
-
+            finally {
+                try{
+                    con.close();
+                }
+                catch (SQLException a) {
+                    a.printStackTrace();
+                }
+            }
             for (int i = 0; i < allMadeContents.size(); i++) {
                 if (idOfCurrentContent == allMadeContents.get(i)) {
                     cheki = true;
@@ -1109,6 +1355,14 @@ public class SQLJavaClass {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        finally {
+            try{
+                con.close();
+            }
+            catch (SQLException a) {
+                a.printStackTrace();
+            }
+        }
         if(idsOfQuestionsCreated.size() < 1){
             cheki = false;
         }
@@ -1150,6 +1404,14 @@ public class SQLJavaClass {
         catch (SQLException e){
             e.printStackTrace();
         }
+        finally {
+            try{
+                con.close();
+            }
+            catch (SQLException a) {
+                a.printStackTrace();
+            }
+        }
     }
     public String[] givePesrsonFirstLastName(HttpSession session){
         String email = (String) session.getAttribute("email");
@@ -1169,6 +1431,14 @@ public class SQLJavaClass {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+        finally {
+            try{
+                con.close();
+            }
+            catch (SQLException a) {
+                a.printStackTrace();
+            }
         }
         return result;
     }
@@ -1212,6 +1482,14 @@ public class SQLJavaClass {
         }
         catch (SQLException e){
             e.printStackTrace();
+        }
+        finally {
+            try{
+                con.close();
+            }
+            catch (SQLException a) {
+                a.printStackTrace();
+            }
         }
     }
 }

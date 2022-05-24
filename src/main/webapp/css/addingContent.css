@@ -443,8 +443,39 @@ ul{
     cursor: pointer;
     background: #FFFFFF;
 }
+.questionActionBorder {
+    border-style: groove;
+    max-width: 900px;
+    text-align: center;
+    border-color: #858585;
+    background-color: #fff4ed;
+    border-radius: 5px;
+    margin-top: 100px;
+    margin-inline: auto;
+    font-family: monospace;
+    box-shadow: 10px 10px rgb(0 0 0 / 15%);
+    transition: all .4s ease;
+}
 
+#answerTATA {
 
+    min-width: 100px;
+    min-height: 55px;
+    background-color: #efefef;
+    color: #000000;
+    padding: 1em;
+    border-radius: 5px;
+    /* border: 2px solid #403c3c00; */
+    border-block-color: black;
+    /* outline: none; */
+    font-family: "Heebo", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.4;
+    width: 500px;
+    height: 57px;
+    transition: all 0.1s;
+}
 /* This is a comment! */
 
 

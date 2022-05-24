@@ -17,7 +17,6 @@ body {
 }
 
 .RL{
-    /*To finish after*/
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -28,7 +27,6 @@ body {
 .RL a{
     display: block;
     color: white;
-    /* text-align: center; */
     padding: 10px 10px;
     text-decoration: none;
 }

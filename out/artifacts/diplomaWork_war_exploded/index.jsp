@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: em4o_
-  Date: 19.12.2021 ã.
-  Time: 12:30
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=WINDOWS-1251" language="java" %>
 <html>
 <head>
@@ -34,6 +27,7 @@
     <li class="RL M R"><a href="rEpTest.jsp">Register</a></li>
     <div style="padding-bottom:2000px"></div>
 </ul>
+
 <h1 id="RegBorder">
     <p class="MT">Login to Relook</p>
     <form  action="${pageContext.request.contextPath}/logServe" method="post">
@@ -48,7 +42,7 @@
         <hr>
         <input class="Register S" type="submit" value="Login"><br>
     </form>
-    <p><a class="forgottenPass" href="forgotenPassword1.jsp">Click here, if you forgot your password.</a></p>
+    <p><a class="forgottenPass" href="forgotenPassword1.jsp">Forgot your password</a></p>
 </h1>
 
     <footer class="footer">
@@ -68,15 +62,7 @@
                         <li><a href="https://discord.com/">Discord</a></li>
                     </ul>
                 </div>
-                <%--            <div class="footer-col">--%>
-                <%--                <h4>online shop</h4>--%>
-                <%--                <ul>--%>
-                <%--                    <li><a href="#">watch</a></li>--%>
-                <%--                    <li><a href="#">bag</a></li>--%>
-                <%--                    <li><a href="#">shoes</a></li>--%>
-                <%--                    <li><a href="#">dress</a></li>--%>
-                <%--                </ul>--%>
-                <%--            </div>--%>
+
                 <div class="footer-col">
                     <h4>follow</h4>
                     <div class="social-links">
