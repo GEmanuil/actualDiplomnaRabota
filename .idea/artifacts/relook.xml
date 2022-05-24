@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
-  <artifact type="war" name="relookWithFancyQuestios">
-    <output-path>$PROJECT_DIR$/out/artifacts/relookWithFancyQuestios</output-path>
+  <artifact type="war" name="relook">
+    <output-path>$PROJECT_DIR$/out/artifacts/relook</output-path>
     <root id="archive" name="diplomaWork_war.war">
       <element id="artifact" artifact-name="diplomaWork:war exploded" />
     </root>

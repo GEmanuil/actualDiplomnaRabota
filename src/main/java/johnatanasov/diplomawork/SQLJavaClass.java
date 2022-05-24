@@ -14,6 +14,7 @@ public class SQLJavaClass {
 //    private final String dbUname = "root";
 //    private final String dbPassword = "P@ssp0rt";
 //    private final String dbDriver = "com.mysql.cj.jdbc.Driver";
+
     private final String dbUrl = "jdbc:mysql://localhost:3306/demo";
     private final String dbUname = "root";
     private final String dbPassword = "c6gkjN9ELV7ZQQxE";
